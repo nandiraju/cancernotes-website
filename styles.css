@@ -1019,24 +1019,12 @@ html.dark .ticker-tile {
 }
 
 .ticker-tile .ticker-icon {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   margin-bottom: 0.65rem;
   color: var(--ticker-color, var(--primary));
   flex-shrink: 0;
   transition: transform 0.3s ease;
-}
-
-.ticker-tile .ticker-icon path,
-.ticker-tile .ticker-icon circle,
-.ticker-tile .ticker-icon rect,
-.ticker-tile .ticker-icon line,
-.ticker-tile .ticker-icon polygon {
-  stroke: currentColor;
-  stroke-width: 1.15;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  paint-order: stroke fill;
 }
 
 .ticker-tile:nth-child(8n+1) { --ticker-color: #2dd4bf; }
