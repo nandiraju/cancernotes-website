@@ -1,0 +1,26 @@
+# CancerNotes
+
+> Understand cancer, one card at a time. A free, private mobile companion app for iOS and Android organised around 118 cancer types.
+
+CancerNotes is an information and organisation app for patients, caregivers, family members, students, and advocates. It brings together recent cancer news from third-party publishers, AI-generated educational quick tips, self-test quizzes with explanations, and a private on-device notebook. No account or sign-up is required.
+
+## Key Facts
+
+- Platforms: iPhone (iOS) and Android
+- Price: Free (no in-app purchases in the current build)
+- Account required: No
+- Library: 118 cancer types (from common to rare and childhood cancers), plus unlimited custom topics
+- Five tabs: Cancers, Notes, Trending, Saved, Quizzes
+- Quiz options: Easy, Medium, Hard; 5 to 20 questions; True/False, single answer, select all that apply
+- Quick Tips: 10 swipeable plain-language fact cards per session
+- Offline support: Notes, saved articles, quiz history, and previously opened tips and quizzes work offline; trending news requires an internet connection
+- Data storage: Notes, saved articles, quiz history, and custom topics are stored on the device only
+
+## Important Disclaimer
+
+CancerNotes is for information and learning only and is not a substitute for professional medical advice, diagnosis, or treatment. Always talk to your care team about your health.
+
+## Links
+
+- Website: https://nandiraju.github.io/cancernotes-website/
+- Sitemap: https://nandiraju.github.io/cancernotes-website/sitemap.xml

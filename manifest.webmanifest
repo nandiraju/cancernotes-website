@@ -1,0 +1,16 @@
+{
+  "name": "CancerNotes",
+  "short_name": "CancerNotes",
+  "description": "Cancer news, swipeable tips, quizzes and a private notebook across 118 cancer types. No account needed.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#FAF9F6",
+  "theme_color": "#0F766E",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

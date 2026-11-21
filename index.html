@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CancerNotes — Cancer News, Quick Tips, Quizzes &amp; Private Notes</title>
+  <meta name="description" content="CancerNotes is a free, private iOS and Android companion app organised around 118 cancer types. Follow trending news, swipe quick tips, take quizzes, and keep private notes on your phone. No account needed.">
+  <meta name="keywords" content="CancerNotes, cancer, cancer news, oncology, breast cancer, prostate cancer, lung cancer, caregiver, cancer quiz, cancer facts, health notes, chemotherapy, survivor, patient notebook">
+  <meta name="author" content="CancerNotes">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#0F766E">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://nandiraju.github.io/cancernotes-website/">
+
+  <!-- Icons & Manifest -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CancerNotes">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://nandiraju.github.io/cancernotes-website/">
+  <meta property="og:title" content="CancerNotes — Understand cancer, one card at a time.">
+  <meta property="og:description" content="A free, private mobile companion for patients, caregivers, families, and students. News, swipeable tips, quizzes, and a private notebook across 118 cancer types. No account required.">
+  <meta property="og:image" content="https://nandiraju.github.io/cancernotes-website/og-image.svg">
+  <meta property="og:image:alt" content="CancerNotes mobile app preview: Understand cancer, one card at a time.">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CancerNotes — Understand cancer, one card at a time.">
+  <meta name="twitter:description" content="Free iOS &amp; Android app with cancer news, swipeable tips, quizzes, and private on-device notes across 118 cancer types. No account needed.">
+  <meta name="twitter:image" content="https://nandiraju.github.io/cancernotes-website/og-image.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured Data: MobileApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "CancerNotes",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "HealthApplication",
+    "applicationSubCategory": "Medical Education & Personal Notes",
+    "url": "https://nandiraju.github.io/cancernotes-website/",
+    "image": "https://nandiraju.github.io/cancernotes-website/og-image.svg",
+    "description": "CancerNotes is a free, private companion app for patients, caregivers, family members, and students. It brings together recent cancer news from third-party publishers, AI-generated educational quick tips, self-test quizzes with explanations, and a personal on-device notebook organised around 118 cancer types. No account or sign-up is required.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Searchable library of 118 cancer types plus unlimited custom topics",
+      "Trending news from third-party publishers with Save and native Share",
+      "10 swipeable AI-generated educational Quick Tips per topic",
+      "Self-test quizzes in Easy, Medium, and Hard with 5 to 20 questions and explanations",
+      "Private on-device Notes with keyboard voice dictation support",
+      "Offline access for notes, saved articles, quiz history, and previously opened tips and quizzes",
+      "No account or sign-up required"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CancerNotes",
+    "url": "https://nandiraju.github.io/cancernotes-website/",
+    "description": "Official landing page for the CancerNotes mobile app for iOS and Android."
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is CancerNotes free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. CancerNotes is free for iPhone (iOS) and Android, with no in-app purchases in the current build."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to create an account or sign in?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. CancerNotes requires no account, no sign-up, and no login. Your notes, saved articles, quiz history, and custom topics are stored only on your device."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does CancerNotes provide medical advice?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. CancerNotes is an information and learning companion, not a medical tool. It does not diagnose, treat, or replace a care team. Always talk to your care team about your health."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where do the news articles, tips, and quizzes come from?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Trending news gathers and links to recent articles from third-party publishers (roughly the past month, with duplicates removed). Quick Tips and quiz questions are AI-generated educational content created for learning only."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does CancerNotes work offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your notes, saved articles, quiz history, and any tips or quizzes you have opened before are stored on your phone and work offline. Trending news and fetching fresh tips or quiz sets require an internet connection."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many cancer types are included?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CancerNotes includes 118 cancer types—from common cancers like breast, colorectal, lung, prostate, pancreatic, and melanoma to rare and childhood cancers. You can also add unlimited custom topics in Settings."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="top">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="CancerNotes Home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+            <rect width="64" height="64" rx="16" fill="#0F766E"/>
+            <rect x="17" y="13" width="30" height="38" rx="6" fill="#FFFFFF"/>
+            <path d="M24 23h16M24 30h16M24 37h10" stroke="#0F766E" stroke-width="3.2" stroke-linecap="round"/>
+            <circle cx="43" cy="43" r="9" fill="#6D28D9"/>
+            <path d="M43 39v8M39 43h8" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-name">CancerNotes</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#who-its-for">Who It's For</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#download" class="btn btn-primary btn-sm">Get the App</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav aria-label="Mobile Navigation">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#who-its-for">Who It's For</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#faq">FAQ</a>
+        <a href="#download" class="btn btn-primary btn-full">Get the App</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="pill-badge">
+            <span class="dot" aria-hidden="true"></span>
+            Free for iOS &amp; Android · No Account Required
+          </div>
+
+          <h1>Understand cancer, <span class="text-gradient">one card at a time.</span></h1>
+
+          <p class="hero-subtitle">
+            When a cancer diagnosis touches your life, information comes from everywhere. CancerNotes puts it in one calm place: the latest news for the cancer type you care about, quick tips you can swipe through, quizzes to check what you have learned, and a private notebook for questions and thoughts.
+          </p>
+
+          <div class="hero-ctas" id="download">
+            <a href="#download-info" class="store-btn store-btn-dark" data-platform="iOS">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.33c.64-.78 1.08-1.86.96-2.94-.93.04-2.05.62-2.71 1.4-.58.68-1.1 1.78-.96 2.84 1.04.08 2.07-.52 2.71-1.3z"/>
+              </svg>
+              <span>
+                <small>Download for</small>
+                <strong>iPhone (iOS)</strong>
+              </span>
+            </a>
+            <a href="#download-info" class="store-btn store-btn-light" data-platform="Android">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a1.77 1.77 0 0 1-.61-1.337V3.151c0-.517.224-.995.609-1.337zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+              </svg>
+              <span>
+                <small>Get it on</small>
+                <strong>Android</strong>
+              </span>
+            </a>
+          </div>
+
+          <p class="hero-note" id="download-info">
+            Free · No in-app purchases · Everything you save stays on your phone.
+          </p>
+
+          <ul class="trust-strip" aria-label="App highlights">
+            <li><strong>118</strong> cancer types</li>
+            <li><strong>5</strong> focused tabs</li>
+            <li><strong>0</strong> sign-ups needed</li>
+            <li><strong>100%</strong> free</li>
+          </ul>
+        </div>
+
+        <!-- Interactive Phone Mockup -->
+        <div class="hero-visual">
+          <div class="phone-frame" role="region" aria-label="Interactive CancerNotes app preview">
+            <div class="phone-notch" aria-hidden="true"></div>
+            <div class="phone-screen">
+              <!-- Status Bar -->
+              <div class="phone-status" aria-hidden="true">
+                <span>9:41</span>
+                <span>CancerNotes</span>
+              </div>
+
+              <!-- Dynamic App Screen Content -->
+              <div class="app-view" id="appView">
+                <!-- Populated & interactive via app.js, with default static HTML fallback for crawlers -->
+                <div class="app-screen-header">
+                  <h2>Cancers</h2>
+                  <span class="app-badge">118 types</span>
+                </div>
+                <div class="app-search-box">
+                  <span aria-hidden="true">🔍</span>
+                  <input type="text" id="demoSearch" placeholder="Search 118 cancer types..." aria-label="Search cancer types in preview">
+                </div>
+                <div class="app-cards" id="demoCancerList">
+                  <div class="app-topic-card">
+                    <div class="topic-title">Breast Cancer</div>
+                    <div class="topic-sub">New studies and clinical trials for Breast Cancer</div>
+                    <div class="topic-actions">
+                      <button type="button" class="chip-btn" data-jump="trending">Trending</button>
+                      <button type="button" class="chip-btn" data-jump="notes">Notes</button>
+                      <button type="button" class="chip-btn" data-jump="quizzes">Quiz</button>
+                      <button type="button" class="chip-btn chip-accent" data-jump="tips">Tips</button>
+                    </div>
+                  </div>
+                  <div class="app-topic-card">
+                    <div class="topic-title">Prostate Cancer</div>
+                    <div class="topic-sub">Latest updates, quick tips, and self-test quizzes</div>
+                    <div class="topic-actions">
+                      <button type="button" class="chip-btn" data-jump="trending">Trending</button>
+                      <button type="button" class="chip-btn" data-jump="notes">Notes</button>
+                      <button type="button" class="chip-btn" data-jump="quizzes">Quiz</button>
+                      <button type="button" class="chip-btn chip-accent" data-jump="tips">Tips</button>
+                    </div>
+                  </div>
+                  <div class="app-topic-card">
+                    <div class="topic-title">CAR-T <span class="custom-tag">Custom</span></div>
+                    <div class="topic-sub">Custom keyword added in Settings</div>
+                    <div class="topic-actions">
+                      <button type="button" class="chip-btn" data-jump="trending">Trending</button>
+                      <button type="button" class="chip-btn" data-jump="notes">Notes</button>
+                      <button type="button" class="chip-btn" data-jump="quizzes">Quiz</button>
+                      <button type="button" class="chip-btn chip-accent" data-jump="tips">Tips</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5-Tab Bottom Navigation -->
+              <div class="app-tab-bar" role="tablist" aria-label="Preview app tabs">
+                <button type="button" class="tab-item active" data-tab="cancers" role="tab" aria-selected="true">
+                  <span aria-hidden="true">📚</span>
+                  <span>Cancers</span>
+                </button>
+                <button type="button" class="tab-item" data-tab="notes" role="tab" aria-selected="false">
+                  <span aria-hidden="true">📝</span>
+                  <span>Notes</span>
+                </button>
+                <button type="button" class="tab-item" data-tab="trending" role="tab" aria-selected="false">
+                  <span aria-hidden="true">📰</span>
+                  <span>Trending</span>
+                </button>
+                <button type="button" class="tab-item" data-tab="saved" role="tab" aria-selected="false">
+                  <span aria-hidden="true">🔖</span>
+                  <span>Saved</span>
+                </button>
+                <button type="button" class="tab-item" data-tab="quizzes" role="tab" aria-selected="false">
+                  <span aria-hidden="true">✅</span>
+                  <span>Quizzes</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="preview-hint">Interactive preview — tap any tab or button above</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Features Bento Section -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Five Tabs, One Calm Companion</span>
+          <h2>News, notes, and know-how for every cancer type.</h2>
+          <p>Everything is organised around 118 cancer types—plus any custom topics you want to follow—so you can learn at your own pace without overwhelm.</p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Feature 1: 118 Cancer Types -->
+          <article class="bento-card bento-wide">
+            <div class="card-icon icon-teal" aria-hidden="true">📚</div>
+            <h3>118 Cancer Types + Custom Topics</h3>
+            <p>Browse a searchable library of <strong>118 cancer types</strong>—from common cancers like breast, colorectal, lung, prostate, pancreatic, and melanoma to rare and childhood cancers like adenoid cystic carcinoma and medulloblastoma.</p>
+            <ul class="feature-bullets">
+              <li>Most common cancers pinned at the top for quick access</li>
+              <li>Case-insensitive search filters as you type</li>
+              <li>Four one-tap actions on every card: <strong>Trending</strong>, <strong>Notes</strong>, <strong>Quiz</strong>, and <strong>Tips</strong></li>
+              <li>Add unlimited custom keywords in Settings (like <em>Immunotherapy</em> or <em>CAR-T</em>)</li>
+            </ul>
+          </article>
+
+          <!-- Feature 2: Trending News -->
+          <article class="bento-card">
+            <div class="card-icon icon-blue" aria-hidden="true">📰</div>
+            <h3>Trending News</h3>
+            <p>Follow recent articles from third-party publishers for your chosen cancer type—gathered from multiple sources, deduplicated, and ordered newest first.</p>
+            <ul class="feature-bullets">
+              <li>Read full articles in an in-app browser</li>
+              <li><strong>Save</strong> articles to your reading list</li>
+              <li><strong>Share</strong> to Messages, WhatsApp, or email in one tap</li>
+            </ul>
+          </article>
+
+          <!-- Feature 3: Quick Tips -->
+          <article class="bento-card">
+            <div class="card-icon icon-purple" aria-hidden="true">💡</div>
+            <h3>Swipeable Quick Tips</h3>
+            <p>Two minutes, ten facts, one swipe at a time. Each topic gives you <strong>10 plain-language fact cards</strong> (AI-generated educational content) designed for busy or overwhelming days.</p>
+            <ul class="feature-bullets">
+              <li>Swipe through cards like flipping a deck</li>
+              <li>Shuffle for a fresh order or refresh for a new set</li>
+              <li>Jump straight into a quiz from the final card</li>
+            </ul>
+          </article>
+
+          <!-- Feature 4: Quizzes & History -->
+          <article class="bento-card bento-wide">
+            <div class="card-icon icon-amber" aria-hidden="true">✅</div>
+            <h3>Self-Test Quizzes &amp; Learning History</h3>
+            <p>Learn by doing: answer, check, and understand. Quizzes feature AI-generated educational questions tailored to your chosen topic and difficulty.</p>
+            <div class="mini-pills">
+              <span>Easy · Medium · Hard</span>
+              <span>5 to 20 Questions Slider</span>
+              <span>True/False · Single · Multi-Select</span>
+            </div>
+            <p class="mt-sm">Every answer includes an explanation in green or red, and completed quizzes are saved automatically to your <strong>Quizzes</strong> tab so you can review, retake, and watch your average climb.</p>
+          </article>
+
+          <!-- Feature 5: Private Notes -->
+          <article class="bento-card">
+            <div class="card-icon icon-rose" aria-hidden="true">📝</div>
+            <h3>Private Notebook</h3>
+            <p>Never forget a question for your next appointment. Jot down doctor questions, symptoms, medication reminders, or thoughts—stored only on your phone.</p>
+            <ul class="feature-bullets">
+              <li>Start a note pre-filled from any cancer card</li>
+              <li><strong>Voice-friendly:</strong> use your keyboard's microphone to dictate</li>
+            </ul>
+          </article>
+
+          <!-- Feature 6: Saved & Offline -->
+          <article class="bento-card">
+            <div class="card-icon icon-slate" aria-hidden="true">🔖</div>
+            <h3>Saved &amp; Ready Offline</h3>
+            <p>Your personal reading list of bookmarked articles stays on your device with no sign-in required.</p>
+            <ul class="feature-bullets">
+              <li>Notes, saved articles, and quiz history work offline</li>
+              <li>Previously opened tips and quizzes open instantly offline</li>
+              <li>Trending news fetches fresh updates when online</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works / 3 Simple Steps -->
+    <section class="section section-tint" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Simple by Design</span>
+          <h2>Stay informed. Stay organised. Stay in control.</h2>
+          <p>No onboarding forms, no passwords, and no clutter. Open the app and start in seconds.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-num">01</span>
+            <h3>Pick your cancer type or topic</h3>
+            <p>Search 118 built-in cancer types—or add your own custom keywords in Settings—to focus only on what matters to you.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">02</span>
+            <h3>Learn &amp; follow at your pace</h3>
+            <p>Swipe through 10 quick tips, check recent third-party news in Trending, or test what you know with an Easy, Medium, or Hard quiz.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">03</span>
+            <h3>Save articles &amp; keep private notes</h3>
+            <p>Bookmark articles to read later, share updates with family in a tap, and dictate questions for your care team—all stored on your phone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who It's For / User Journeys -->
+    <section class="section" id="who-its-for">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Built for Every Perspective</span>
+          <h2>A calm companion for everyone touched by cancer.</h2>
+          <p>Whether you are newly diagnosed, supporting a loved one, or studying oncology, CancerNotes meets you where you are.</p>
+        </div>
+
+        <div class="audience-grid">
+          <article class="audience-card">
+            <div class="audience-role">Newly Diagnosed Patients</div>
+            <h3>Make sense of unfamiliar terms</h3>
+            <p>Quick Tips explain the basics in plain language, Trending shows recent news for your specific cancer, and Notes lets you dictate questions for your next appointment.</p>
+            <div class="journey-quote">
+              “Maya searches ‘breast’, swipes through ten explanations, and dictates three questions for her oncologist.”
+            </div>
+          </article>
+
+          <article class="audience-card">
+            <div class="audience-role">Caregivers &amp; Family Members</div>
+            <h3>Keep up and keep track together</h3>
+            <p>Keep saved articles and appointment notes in one place, and use the native Share sheet to send relevant updates to your family group chat in a tap.</p>
+            <div class="journey-quote">
+              “Raj follows Prostate Cancer news in Trending and shares helpful articles directly to his siblings’ chat.”
+            </div>
+          </article>
+
+          <article class="audience-card">
+            <div class="audience-role">People in Treatment or Survivorship</div>
+            <h3>Follow news without doom-scrolling</h3>
+            <p>Get a focused news feed per cancer type instead of overwhelming search results, and bookmark articles worth re-reading later.</p>
+          </article>
+
+          <article class="audience-card">
+            <div class="audience-role">Students, Nurses &amp; Health Learners</div>
+            <h3>Study and self-test across 118 types</h3>
+            <p>Choose Easy, Medium, or Hard quizzes from 5 to 20 questions, review explanations for every answer, and track your score average over time.</p>
+            <div class="journey-quote">
+              “Lena works through a different cancer type each evening and watches her quiz average climb from 60% to 85%.”
+            </div>
+          </article>
+
+          <article class="audience-card">
+            <div class="audience-role">Advocates &amp; Researchers</div>
+            <h3>Follow custom topics effortlessly</h3>
+            <p>Add custom keywords like <em>CAR-T</em> or <em>Immunotherapy</em> in Settings so they appear at the top of your list with their own news, tips, and quizzes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy & Accessibility Section -->
+    <section class="section section-dark" id="privacy">
+      <div class="container privacy-grid">
+        <div class="privacy-copy">
+          <span class="eyebrow eyebrow-light">Privacy by Design &amp; Accessibility</span>
+          <h2>No account. No profile. Your notes never leave your phone.</h2>
+          <p>
+            CancerNotes is built to be quiet and respectful of your privacy. There is no sign-up wall, no login, and no user profile.
+          </p>
+          <ul class="privacy-list">
+            <li>
+              <strong>Stored on your device:</strong> Your notes, saved articles, quiz history, and custom topics stay on your phone.
+            </li>
+            <li>
+              <strong>Minimal network use:</strong> The app only contacts the internet to fetch news articles, tips, and quiz questions for the topic you choose.
+            </li>
+            <li>
+              <strong>Comfortable &amp; accessible:</strong> Designed with soft gradients, readable type, screen-reader labels, keyboard voice dictation support, and respect for your phone's <em>Reduce Motion</em> setting.
+            </li>
+          </ul>
+        </div>
+
+        <div class="privacy-card-box">
+          <div class="spec-row">
+            <span>Account required</span>
+            <strong>No</strong>
+          </div>
+          <div class="spec-row">
+            <span>Price</span>
+            <strong>Free (no in-app purchases)</strong>
+          </div>
+          <div class="spec-row">
+            <span>Platforms</span>
+            <strong>iPhone (iOS) &amp; Android</strong>
+          </div>
+          <div class="spec-row">
+            <span>Data storage</span>
+            <strong>On your device only</strong>
+          </div>
+          <div class="spec-row">
+            <span>Cancer library</span>
+            <strong>118 types + custom topics</strong>
+          </div>
+          <div class="spec-row">
+            <span>Offline access</span>
+            <strong>Notes, Saved, Quiz history &amp; opened Tips/Quizzes</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+      <div class="container faq-container">
+        <div class="section-header">
+          <span class="eyebrow">Frequently Asked Questions</span>
+          <h2>Clear answers, no fine print.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Is CancerNotes free to use?</summary>
+            <p>Yes. CancerNotes is free for both iPhone (iOS) and Android, with no in-app purchases in the current build.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do I need to create an account or sign in?</summary>
+            <p>No. CancerNotes requires no account, no sign-up, and no login. Your notes, saved articles, quiz history, and custom topics are stored only on your device.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Does CancerNotes provide medical advice?</summary>
+            <p>No. CancerNotes is an information and learning tool, not a medical tool. It does not diagnose, treat, or replace a care team. Always talk to your care team about your health.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Where do the news articles, tips, and quizzes come from?</summary>
+            <p><strong>Trending</strong> gathers and links to recent articles from third-party publishers (roughly the past month, with duplicates removed)—CancerNotes does not write or verify them. <strong>Quick Tips</strong> and <strong>Quizzes</strong> are AI-generated educational content created for learning only; always check with your care team.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Does CancerNotes work offline?</summary>
+            <p>Yes, for content on your phone: your notes, saved articles, quiz history, and any tips or quizzes you have opened before open instantly offline. Trending news and fetching brand-new tips or quiz sets require an internet connection.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How many cancer types are included?</summary>
+            <p>CancerNotes includes <strong>118 cancer types</strong>, covering common cancers as well as rare and childhood cancers. You can also add unlimited custom keywords in Settings to follow specific treatments, trials, or topics.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="section cta-banner">
+      <div class="container cta-inner">
+        <h2>Learn about cancer at your own pace.</h2>
+        <p>Keep recent news, plain-language tips, self-test quizzes, and your private appointment notes together in one calm app.</p>
+        <div class="hero-ctas justify-center">
+          <a href="#download" class="store-btn store-btn-dark">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.33c.64-.78 1.08-1.86.96-2.94-.93.04-2.05.62-2.71 1.4-.58.68-1.1 1.78-.96 2.84 1.04.08 2.07-.52 2.71-1.3z"/>
+            </svg>
+            <span>
+              <small>Download for</small>
+              <strong>iPhone (iOS)</strong>
+            </span>
+          </a>
+          <a href="#download" class="store-btn store-btn-light">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3.609 1.814L13.792 12 3.61 22.186a1.77 1.77 0 0 1-.61-1.337V3.151c0-.517.224-.995.609-1.337zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+            </svg>
+            <span>
+              <small>Get it on</small>
+              <strong>Android</strong>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#top" class="brand">
+            <span class="brand-mark" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 64 64" fill="none">
+                <rect width="64" height="64" rx="16" fill="#0F766E"/>
+                <rect x="17" y="13" width="30" height="38" rx="6" fill="#FFFFFF"/>
+                <path d="M24 23h16M24 30h16M24 37h10" stroke="#0F766E" stroke-width="3.2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="brand-name">CancerNotes</span>
+          </a>
+          <p class="footer-tagline">Understand cancer, one card at a time.</p>
+        </div>
+
+        <nav class="footer-links" aria-label="Footer Navigation">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#who-its-for">Who It's For</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+
+      <div class="disclaimer-box" role="note" aria-label="Medical Disclaimer">
+        <strong>Medical Disclaimer:</strong> CancerNotes is for information and learning only and is not a substitute for professional medical advice. Tips and quiz questions are AI-generated educational content; always talk to your care team about your health. Trending news links to articles from third-party publishers.
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 CancerNotes. Free for iOS and Android.</p>
+        <p>Notes, saved articles, and quiz history stay on your device.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

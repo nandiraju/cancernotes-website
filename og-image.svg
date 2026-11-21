@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FAF9F6"/>
+      <stop offset="55%" stop-color="#F0FDFA"/>
+      <stop offset="100%" stop-color="#EDE9FE"/>
+    </linearGradient>
+    <linearGradient id="badge" x1="0" y1="0" x2="96" y2="96" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0F766E"/>
+      <stop offset="100%" stop-color="#0D9488"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1050" cy="120" r="220" fill="#99F6E4" fill-opacity="0.28"/>
+  <circle cx="140" cy="540" r="180" fill="#DDD6FE" fill-opacity="0.35"/>
+
+  <rect x="96" y="110" width="84" height="84" rx="22" fill="url(#badge)"/>
+  <rect x="118" y="127" width="40" height="50" rx="8" fill="#FFFFFF"/>
+  <path d="M128 141h20M128 151h20M128 161h12" stroke="#0F766E" stroke-width="3.5" stroke-linecap="round"/>
+
+  <text x="200" y="166" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="700" fill="#0F172A">CancerNotes</text>
+
+  <text x="96" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="60" font-weight="800" fill="#0F172A">Understand cancer,</text>
+  <text x="96" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="60" font-weight="800" fill="#0F766E">one card at a time.</text>
+
+  <text x="96" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#475569">News, swipeable tips, quizzes &amp; a private notebook across 118 cancer types.</text>
+
+  <rect x="96" y="476" width="230" height="52" rx="26" fill="#0F766E"/>
+  <text x="211" y="510" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="21" font-weight="600" fill="#FFFFFF">Free · iOS &amp; Android</text>
+
+  <rect x="346" y="476" width="250" height="52" rx="26" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+  <text x="471" y="510" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="21" font-weight="600" fill="#0F172A">No Account Required</text>
+</svg>
