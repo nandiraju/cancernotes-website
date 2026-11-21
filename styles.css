@@ -783,9 +783,97 @@ html:not(.dark) .text-gradient {
   100% { box-shadow: inset 0 1px rgba(255, 255, 255, 0.28), 0 8px 20px -4px rgba(79, 70, 229, 0.45); }
 }
 
-.preview-hint {
-  margin-top: 0.85rem;
-  font-size: 0.82rem;
+.phone-screen-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border-radius: 32px;
+  transition: opacity 0.25s ease;
+}
+
+.screen-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.screen-tab {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.42rem 0.85rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.screen-tab:hover {
+  color: var(--ink);
+  border-color: var(--primary);
+}
+
+.screen-tab[aria-selected="true"] {
+  color: #ffffff;
+  background:
+    linear-gradient(135deg, #6366f1 0%, #4f46e5 55%, #4338ca 100%) padding-box,
+    conic-gradient(from var(--shine-angle, 0deg), #4f46e5 0deg, #818cf8 50deg, #fff 80deg, #f9a8d4 110deg, #4f46e5 160deg, #4f46e5 200deg, #7dd3fc 250deg, #fff 270deg, #4f46e5 320deg) border-box;
+  border: 1px solid transparent;
+  animation: 2.8s linear infinite shine-spin, 0.7s ease-out pill-select-glow;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.28), 0 8px 20px -4px rgba(79, 70, 229, 0.45);
+}
+
+/* App Screens Gallery */
+.screens-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+  gap: 1.35rem;
+}
+
+.screen-card {
+  background: var(--surface);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.screen-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(129, 140, 248, 0.38);
+}
+
+.screen-card img {
+  width: 100%;
+  aspect-ratio: 1320 / 2868;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.screen-card-caption {
+  padding: 0.65rem 0.35rem 0.25rem;
+  text-align: center;
+}
+
+.screen-card-caption strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.screen-card-caption span {
+  font-size: 0.78rem;
   color: var(--ink-subtle);
 }
 
