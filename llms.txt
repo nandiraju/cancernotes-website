@@ -22,5 +22,8 @@ CancerNotes is for information and learning only and is not a substitute for pro
 
 ## Links
 
-- Website: https://nandiraju.github.io/cancernotes-website/
+- Home: https://nandiraju.github.io/cancernotes-website/
+- Privacy Policy: https://nandiraju.github.io/cancernotes-website/privacy_policy.html
+- Terms of Service: https://nandiraju.github.io/cancernotes-website/terms_of_service.html
+- Contact & Support: https://nandiraju.github.io/cancernotes-website/contact.html
 - Sitemap: https://nandiraju.github.io/cancernotes-website/sitemap.xml

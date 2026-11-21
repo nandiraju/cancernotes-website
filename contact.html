@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; Support — CancerNotes Mobile App</title>
+  <meta name="description" content="Get support for CancerNotes on iOS and Android, suggest topics or features, or ask privacy questions.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="canonical" href="https://nandiraju.github.io/cancernotes-website/contact.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      var light = false;
+      try { light = localStorage.getItem('cn-theme') === 'light'; } catch (_) {}
+      document.documentElement.classList.toggle('dark', !light);
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', light ? '#f8fbff' : '#0f172a');
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="CancerNotes Home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+            <rect width="64" height="64" rx="16" fill="#0F766E"/>
+            <rect x="17" y="13" width="30" height="38" rx="6" fill="#FFFFFF"/>
+            <path d="M24 23h16M24 30h16M24 37h10" stroke="#0F766E" stroke-width="3.2" stroke-linecap="round"/>
+            <circle cx="43" cy="43" r="9" fill="#6D28D9"/>
+            <path d="M43 39v8M39 43h8" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-name">CancerNotes</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="privacy_policy.html">Privacy</a>
+        <a href="terms_of_service.html">Terms</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch theme">☀️</button>
+        <a href="index.html#download" class="btn btn-primary btn-sm">Get the App</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav aria-label="Mobile Navigation">
+        <a href="index.html">Home</a>
+        <a href="privacy_policy.html">Privacy Policy</a>
+        <a href="terms_of_service.html">Terms of Service</a>
+        <a href="contact.html">Contact &amp; Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Support &amp; Feedback</span>
+        <h1>Contact Us</h1>
+        <p>Have a question, bug report, or idea for CancerNotes? We'd love to hear from you.</p>
+      </div>
+    </section>
+
+    <section class="legal-shell">
+      <div class="container">
+        <div class="summary-grid-3">
+          <div class="step-card">
+            <h2>Topic &amp; Feature Ideas</h2>
+            <p>Want to suggest a new feature or improvement? Send us a note below.</p>
+          </div>
+          <div class="step-card">
+            <h2>iOS &amp; Android Help</h2>
+            <p>Include your phone model and OS version when reporting a bug so we can reproduce it quickly.</p>
+          </div>
+          <div class="step-card">
+            <h2>Privacy Inquiries</h2>
+            <p>Questions about how data stays on your device? Check our <a href="privacy_policy.html" style="color: var(--primary); font-weight: 600;">Privacy Policy</a> or message us.</p>
+          </div>
+        </div>
+
+        <article class="legal-card">
+          <h2>Quick Support Answers</h2>
+          <h3>Can you reset my account or recover deleted notes?</h3>
+          <p>Because CancerNotes has no user accounts and stores your notes, saved articles, and quiz history only on your phone, we cannot access or recover data that was deleted or lost when uninstalling the app.</p>
+
+          <h3>Why does Trending news say I'm offline?</h3>
+          <p>Your notes, saved articles, quiz history, and previously opened tips and quizzes work offline, while Trending news requires an active internet connection to fetch recent articles.</p>
+
+          <h3>Can CancerNotes answer medical questions?</h3>
+          <p>No. CancerNotes is an educational and personal organisation app only. Please reach out to your doctor or care team for any medical questions.</p>
+        </article>
+
+        <article class="legal-card">
+          <h2>Send Us a Note</h2>
+          <p>Direct email: <a href="mailto:support@cancernotes.app" style="color: var(--primary); font-weight: 600;">support@cancernotes.app</a></p>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="contactTopic">Topic</label>
+              <select id="contactTopic" name="topic">
+                <option value="iOS / Android Support">iOS / Android Support</option>
+                <option value="Feature Suggestion">Feature Suggestion</option>
+                <option value="Privacy Question">Privacy Question</option>
+                <option value="Bug Report">Bug Report</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="message" placeholder="Tell us how we can help..." required></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary btn-sm" style="padding: 0.75rem 1.5rem;">Open Email Draft</button>
+            </div>
+          </form>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">
+            <span class="brand-name">CancerNotes</span>
+          </a>
+          <p class="footer-tagline">Understand cancer, one card at a time.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer Navigation">
+          <a href="index.html">Home</a>
+          <a href="privacy_policy.html">Privacy Policy</a>
+          <a href="terms_of_service.html">Terms of Service</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div class="disclaimer-box" role="note">
+        <strong>Medical Disclaimer:</strong> CancerNotes is for information and learning only and is not a substitute for professional medical advice. Always talk to your care team about your health.
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 CancerNotes. Free for iOS and Android.</p>
+        <p>Notes, saved articles, and quiz history stay on your device.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

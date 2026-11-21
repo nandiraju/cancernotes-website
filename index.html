@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
   <meta name="keywords" content="CancerNotes, cancer, cancer news, oncology, breast cancer, prostate cancer, lung cancer, caregiver, cancer quiz, cancer facts, health notes, chemotherapy, survivor, patient notebook">
   <meta name="author" content="CancerNotes">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <meta name="theme-color" content="#0F766E">
+  <meta name="theme-color" content="#0f172a">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://nandiraju.github.io/cancernotes-website/">
@@ -40,6 +40,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Dark theme by default; light only if the visitor chose it -->
+  <script>
+    (function () {
+      var light = false;
+      try { light = localStorage.getItem('cn-theme') === 'light'; } catch (_) {}
+      document.documentElement.classList.toggle('dark', !light);
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', light ? '#f8fbff' : '#0f172a');
+    })();
+  </script>
 
   <!-- Structured Data: MobileApplication -->
   <script type="application/ld+json">
@@ -145,7 +156,7 @@
   <!-- Header / Navigation -->
   <header class="site-header" id="top">
     <div class="container nav-inner">
-      <a href="#top" class="brand" aria-label="CancerNotes Home">
+      <a href="index.html" class="brand" aria-label="CancerNotes Home">
         <span class="brand-mark" aria-hidden="true">
           <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
             <rect width="64" height="64" rx="16" fill="#0F766E"/>
@@ -160,13 +171,15 @@
 
       <nav class="desktop-nav" aria-label="Primary Navigation">
         <a href="#features">Features</a>
-        <a href="#how-it-works">How It Works</a>
         <a href="#who-its-for">Who It's For</a>
-        <a href="#privacy">Privacy</a>
         <a href="#faq">FAQ</a>
+        <a href="privacy_policy.html">Privacy</a>
+        <a href="terms_of_service.html">Terms</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
       <div class="nav-actions">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch theme">☀️</button>
         <a href="#download" class="btn btn-primary btn-sm">Get the App</a>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
           <span></span>
@@ -179,10 +192,11 @@
     <div class="mobile-menu" id="mobileMenu" hidden>
       <nav aria-label="Mobile Navigation">
         <a href="#features">Features</a>
-        <a href="#how-it-works">How It Works</a>
         <a href="#who-its-for">Who It's For</a>
-        <a href="#privacy">Privacy</a>
         <a href="#faq">FAQ</a>
+        <a href="privacy_policy.html">Privacy Policy</a>
+        <a href="terms_of_service.html">Terms of Service</a>
+        <a href="contact.html">Contact &amp; Support</a>
         <a href="#download" class="btn btn-primary btn-full">Get the App</a>
       </nav>
     </div>
@@ -191,9 +205,6 @@
   <main id="main-content">
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
-
       <div class="container hero-grid">
         <div class="hero-copy">
           <div class="pill-badge">
@@ -236,7 +247,7 @@
             <li><strong>118</strong> cancer types</li>
             <li><strong>5</strong> focused tabs</li>
             <li><strong>0</strong> sign-ups needed</li>
-            <li><strong>100%</strong> free</li>
+            <li><strong>Free</strong> forever</li>
           </ul>
         </div>
 
@@ -245,15 +256,12 @@
           <div class="phone-frame" role="region" aria-label="Interactive CancerNotes app preview">
             <div class="phone-notch" aria-hidden="true"></div>
             <div class="phone-screen">
-              <!-- Status Bar -->
               <div class="phone-status" aria-hidden="true">
                 <span>9:41</span>
                 <span>CancerNotes</span>
               </div>
 
-              <!-- Dynamic App Screen Content -->
               <div class="app-view" id="appView">
-                <!-- Populated & interactive via app.js, with default static HTML fallback for crawlers -->
                 <div class="app-screen-header">
                   <h2>Cancers</h2>
                   <span class="app-badge">118 types</span>
@@ -296,7 +304,6 @@
                 </div>
               </div>
 
-              <!-- 5-Tab Bottom Navigation -->
               <div class="app-tab-bar" role="tablist" aria-label="Preview app tabs">
                 <button type="button" class="tab-item active" data-tab="cancers" role="tab" aria-selected="true">
                   <span aria-hidden="true">📚</span>
@@ -336,7 +343,6 @@
         </div>
 
         <div class="bento-grid">
-          <!-- Feature 1: 118 Cancer Types -->
           <article class="bento-card bento-wide">
             <div class="card-icon icon-teal" aria-hidden="true">📚</div>
             <h3>118 Cancer Types + Custom Topics</h3>
@@ -349,7 +355,6 @@
             </ul>
           </article>
 
-          <!-- Feature 2: Trending News -->
           <article class="bento-card">
             <div class="card-icon icon-blue" aria-hidden="true">📰</div>
             <h3>Trending News</h3>
@@ -361,7 +366,6 @@
             </ul>
           </article>
 
-          <!-- Feature 3: Quick Tips -->
           <article class="bento-card">
             <div class="card-icon icon-purple" aria-hidden="true">💡</div>
             <h3>Swipeable Quick Tips</h3>
@@ -373,7 +377,6 @@
             </ul>
           </article>
 
-          <!-- Feature 4: Quizzes & History -->
           <article class="bento-card bento-wide">
             <div class="card-icon icon-amber" aria-hidden="true">✅</div>
             <h3>Self-Test Quizzes &amp; Learning History</h3>
@@ -386,7 +389,6 @@
             <p class="mt-sm">Every answer includes an explanation in green or red, and completed quizzes are saved automatically to your <strong>Quizzes</strong> tab so you can review, retake, and watch your average climb.</p>
           </article>
 
-          <!-- Feature 5: Private Notes -->
           <article class="bento-card">
             <div class="card-icon icon-rose" aria-hidden="true">📝</div>
             <h3>Private Notebook</h3>
@@ -397,7 +399,6 @@
             </ul>
           </article>
 
-          <!-- Feature 6: Saved & Offline -->
           <article class="bento-card">
             <div class="card-icon icon-slate" aria-hidden="true">🔖</div>
             <h3>Saved &amp; Ready Offline</h3>
@@ -412,7 +413,7 @@
       </div>
     </section>
 
-    <!-- How It Works / 3 Simple Steps -->
+    <!-- How It Works -->
     <section class="section section-tint" id="how-it-works">
       <div class="container">
         <div class="section-header">
@@ -441,7 +442,7 @@
       </div>
     </section>
 
-    <!-- Who It's For / User Journeys -->
+    <!-- Who It's For -->
     <section class="section" id="who-its-for">
       <div class="container">
         <div class="section-header">
@@ -494,10 +495,10 @@
     </section>
 
     <!-- Privacy & Accessibility Section -->
-    <section class="section section-dark" id="privacy">
+    <section class="section section-tint" id="privacy">
       <div class="container privacy-grid">
         <div class="privacy-copy">
-          <span class="eyebrow eyebrow-light">Privacy by Design &amp; Accessibility</span>
+          <span class="eyebrow">Privacy by Design &amp; Accessibility</span>
           <h2>No account. No profile. Your notes never leave your phone.</h2>
           <p>
             CancerNotes is built to be quiet and respectful of your privacy. There is no sign-up wall, no login, and no user profile.
@@ -513,6 +514,9 @@
               <strong>Comfortable &amp; accessible:</strong> Designed with soft gradients, readable type, screen-reader labels, keyboard voice dictation support, and respect for your phone's <em>Reduce Motion</em> setting.
             </li>
           </ul>
+          <p class="mt-sm">
+            <a href="privacy_policy.html" style="color: var(--primary); font-weight: 600;">Read the full Privacy Policy →</a>
+          </p>
         </div>
 
         <div class="privacy-card-box">
@@ -620,7 +624,7 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="#top" class="brand">
+          <a href="index.html" class="brand">
             <span class="brand-mark" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 64 64" fill="none">
                 <rect width="64" height="64" rx="16" fill="#0F766E"/>
@@ -635,10 +639,11 @@
 
         <nav class="footer-links" aria-label="Footer Navigation">
           <a href="#features">Features</a>
-          <a href="#how-it-works">How It Works</a>
           <a href="#who-its-for">Who It's For</a>
-          <a href="#privacy">Privacy</a>
           <a href="#faq">FAQ</a>
+          <a href="privacy_policy.html">Privacy Policy</a>
+          <a href="terms_of_service.html">Terms of Service</a>
+          <a href="contact.html">Contact</a>
         </nav>
       </div>
 

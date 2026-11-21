@@ -1,4 +1,26 @@
 (() => {
+  // Theme toggle (dark by default, matching moodmeter.cend.in)
+  const themeToggle = document.getElementById('themeToggle');
+  function updateThemeIcon() {
+    if (!themeToggle) return;
+    const isDark = document.documentElement.classList.contains('dark');
+    themeToggle.textContent = isDark ? '☀️' : '🌙';
+    themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+  updateThemeIcon();
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      try {
+        localStorage.setItem('cn-theme', isDark ? 'dark' : 'light');
+      } catch (_) {}
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#f8fbff');
+      updateThemeIcon();
+    });
+  }
+
   // Mobile menu toggle
   const menuToggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -23,7 +45,20 @@
     });
   }
 
-  // Interactive Phone Mockup
+  // Contact form mailto helper
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const topic = document.getElementById('contactTopic')?.value || 'General Inquiry';
+      const msg = document.getElementById('contactMessage')?.value || '';
+      const subject = encodeURIComponent(`[CancerNotes] ${topic}`);
+      const body = encodeURIComponent(msg);
+      window.location.href = `mailto:support@cancernotes.app?subject=${subject}&body=${body}`;
+    });
+  }
+
+  // Interactive Phone Mockup (only on index.html)
   const appView = document.getElementById('appView');
   const tabButtons = document.querySelectorAll('.tab-item');
   if (!appView || !tabButtons.length) return;
@@ -129,7 +164,7 @@
         <div class="app-topic-card">
           <div class="topic-title">Questions for Oncology Visit</div>
           <div class="topic-sub">3 days ago · Breast Cancer</div>
-          <p style="font-size:0.78rem;color:#475569;">1. What are the next steps after imaging? 2. Who do I call with side-effect questions?</p>
+          <p style="font-size:0.78rem;color:#cbd5e1;">1. What are the next steps after imaging? 2. Who do I call with side-effect questions?</p>
         </div>
         <div class="app-topic-card">
           <div class="topic-title">Voice-friendly dictation</div>
@@ -244,7 +279,6 @@
     });
   });
 
-  // Bind initial search & jump buttons
   document.getElementById('demoSearch')?.addEventListener('input', (e) => renderCancers(e.target.value));
   bindJumpButtons();
 })();
