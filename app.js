@@ -43,20 +43,21 @@
     }
   }
 
-  // Cancer Types Marquee Ticker (matching moodmeter.cend.in Web Animations API ticker)
-  const ticker = document.querySelector('[data-ticker]');
-  if (ticker && typeof ticker.animate === 'function') {
+  // Marquee Tickers (cancer types scrolls right-to-left; app screens scrolls left-to-right)
+  document.querySelectorAll('[data-ticker]').forEach((ticker) => {
+    if (typeof ticker.animate !== 'function') return;
     const track = ticker.querySelector('.ticker-track');
     const firstSet = track?.querySelector('.ticker-set');
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const SPEED = 55;
+    const isReverse = ticker.dataset.direction === 'reverse';
+    const SPEED = isReverse ? 42 : 55;
     let anim = null;
     let userPaused = false;
     let visible = true;
     let resizeTimer = 0;
 
     // Randomize icon colors on each load before cloning so clones match
-    if (firstSet) {
+    if (firstSet && !isReverse) {
       const palette = ['#2dd4bf', '#818cf8', '#f472b6', '#38bdf8', '#fbbf24', '#a78bfa', '#34d399', '#fb7185'];
       firstSet.querySelectorAll('.ticker-tile').forEach((tile) => {
         const color = palette[Math.floor(Math.random() * palette.length)];
@@ -94,10 +95,10 @@
         clone.setAttribute('data-clone', '');
         track.appendChild(clone);
       }
-      anim = track.animate(
-        [{ transform: 'translate3d(0, 0, 0)' }, { transform: `translate3d(-${distance}px, 0, 0)` }],
-        { duration: (distance / SPEED) * 1000, iterations: Infinity, easing: 'linear' }
-      );
+      const frames = isReverse
+        ? [{ transform: `translate3d(-${distance}px, 0, 0)` }, { transform: 'translate3d(0, 0, 0)' }]
+        : [{ transform: 'translate3d(0, 0, 0)' }, { transform: `translate3d(-${distance}px, 0, 0)` }];
+      anim = track.animate(frames, { duration: (distance / SPEED) * 1000, iterations: Infinity, easing: 'linear' });
       sync();
     }
 
@@ -115,7 +116,7 @@
       }).observe(ticker);
     }
     build();
-  }
+  });
 
   // Mobile menu toggle
   const menuToggle = document.getElementById('menuToggle');

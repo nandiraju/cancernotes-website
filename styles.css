@@ -65,11 +65,15 @@ html {
   html {
     scroll-behavior: auto;
   }
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
   .reveal {
     opacity: 1 !important;
     transform: none !important;
@@ -141,9 +145,17 @@ html:not(.dark) .ambient .orb {
 }
 
 @keyframes orb-float {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(3%, -4%) scale(1.06); }
-  100% { transform: translate(-2%, 3%) scale(0.96); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(3%, -4%) scale(1.06);
+  }
+
+  100% {
+    transform: translate(-2%, 3%) scale(0.96);
+  }
 }
 
 /* Scroll Reveal Animations */
@@ -158,11 +170,22 @@ html:not(.dark) .ambient .orb {
   transform: translateY(0);
 }
 
-.reveal-delay-1 { transition-delay: 80ms; }
-.reveal-delay-2 { transition-delay: 160ms; }
-.reveal-delay-3 { transition-delay: 240ms; }
+.reveal-delay-1 {
+  transition-delay: 80ms;
+}
 
-h1, h2, h3, h4 {
+.reveal-delay-2 {
+  transition-delay: 160ms;
+}
+
+.reveal-delay-3 {
+  transition-delay: 240ms;
+}
+
+h1,
+h2,
+h3,
+h4 {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.18;
   margin: 0;
@@ -360,6 +383,7 @@ html:not(.dark) .theme-toggle .icon-moon {
   .desktop-nav {
     display: flex;
   }
+
   .menu-toggle {
     display: none;
   }
@@ -382,6 +406,7 @@ html:not(.dark) .theme-toggle .icon-moon {
   .hero {
     padding: 4.5rem 0 5rem;
   }
+
   .hero-grid {
     grid-template-columns: 1.15fr 0.85fr;
     gap: 3.5rem;
@@ -414,8 +439,17 @@ html:not(.dark) .theme-toggle .icon-moon {
 }
 
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.25); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.25);
+  }
 }
 
 .hero h1 {
@@ -759,12 +793,19 @@ html:not(.dark) .text-gradient {
 }
 
 @keyframes shine-spin {
-  to { --shine-angle: 360deg; }
+  to {
+    --shine-angle: 360deg;
+  }
 }
 
 @keyframes pill-select-glow {
-  0% { box-shadow: inset 0 1px rgba(255, 255, 255, 0.28), 0 0 0 6px rgba(129, 140, 248, 0.45), 0 8px 20px -4px rgba(79, 70, 229, 0.45); }
-  100% { box-shadow: inset 0 1px rgba(255, 255, 255, 0.28), 0 8px 20px -4px rgba(79, 70, 229, 0.45); }
+  0% {
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.28), 0 0 0 6px rgba(129, 140, 248, 0.45), 0 8px 20px -4px rgba(79, 70, 229, 0.45);
+  }
+
+  100% {
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.28), 0 8px 20px -4px rgba(79, 70, 229, 0.45);
+  }
 }
 
 .phone-screen-img {
@@ -810,19 +851,21 @@ html:not(.dark) .text-gradient {
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.28), 0 8px 20px -4px rgba(79, 70, 229, 0.45);
 }
 
-/* App Screens Gallery */
-.screens-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  justify-content: center;
-  gap: 1.5rem 1.25rem;
-  max-width: 1040px;
-  margin-inline: auto;
+/* App Screens Ticker Gallery (scrolls opposite to the cancer-types ticker) */
+.screens-ticker {
+  padding: 0.5rem 0 1rem;
+}
+
+.screens-set {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.5rem 1.5rem 0.5rem 0;
 }
 
 .screen-card {
+  flex: 0 0 auto;
+  width: 220px;
   margin: 0;
-  min-width: 0;
   transition: transform 0.25s ease;
 }
 
@@ -1086,6 +1129,7 @@ html:not(.dark) .ticker-tile:nth-child(8n+8) { --ticker-color: #e11d48; }
   .bento-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .bento-wide {
     grid-column: span 2;
   }
@@ -1095,6 +1139,7 @@ html:not(.dark) .ticker-tile:nth-child(8n+8) { --ticker-color: #e11d48; }
   .bento-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
   .bento-wide {
     grid-column: span 2;
   }
@@ -1129,6 +1174,7 @@ html.dark .legal-card {
 }
 
 @media (hover: none) and (pointer: coarse) {
+
   html.dark .bento-card,
   html.dark .step-card,
   html.dark .audience-card,
@@ -1194,12 +1240,29 @@ html.dark .legal-card {
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.25));
 }
 
-.icon-teal { background: rgba(20, 184, 166, 0.16); }
-.icon-blue { background: rgba(59, 130, 246, 0.16); }
-.icon-purple { background: rgba(167, 139, 250, 0.16); }
-.icon-amber { background: rgba(245, 158, 11, 0.16); }
-.icon-rose { background: rgba(244, 63, 94, 0.16); }
-.icon-slate { background: rgba(148, 163, 184, 0.18); }
+.icon-teal {
+  background: rgba(20, 184, 166, 0.16);
+}
+
+.icon-blue {
+  background: rgba(59, 130, 246, 0.16);
+}
+
+.icon-purple {
+  background: rgba(167, 139, 250, 0.16);
+}
+
+.icon-amber {
+  background: rgba(245, 158, 11, 0.16);
+}
+
+.icon-rose {
+  background: rgba(244, 63, 94, 0.16);
+}
+
+.icon-slate {
+  background: rgba(148, 163, 184, 0.18);
+}
 
 .bento-card h3 {
   font-size: 1.25rem;
@@ -1516,7 +1579,7 @@ html.dark .legal-card {
   font-size: 0.96rem;
 }
 
-.legal-card p + p {
+.legal-card p+p {
   margin-top: 0.75rem;
 }
 
@@ -1664,7 +1727,7 @@ html.dark .legal-card {
   background: linear-gradient(90deg, #0e1b69, #0d206f 50%, #11236f);
 }
 
-.screen-card-media-search > img {
+.screen-card-media-search>img {
   position: absolute;
   top: 3%;
   left: 0;
