@@ -4,7 +4,6 @@
   function updateThemeIcons() {
     const isDark = document.documentElement.classList.contains('dark');
     themeButtons.forEach((btn) => {
-      btn.textContent = isDark ? '☀️' : '🌙';
       btn.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
     });
   }

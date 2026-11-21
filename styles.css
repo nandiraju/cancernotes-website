@@ -131,7 +131,7 @@ html:not(.dark) .ambient .orb {
 }
 
 .ambient .orb-c {
-  background: #ec4899;
+  background: #38bdf8;
   width: 28vw;
   height: 28vw;
   top: 42%;
@@ -277,6 +277,17 @@ a {
   transform: translateY(-1px);
 }
 
+.theme-toggle svg {
+  width: 17px;
+  height: 17px;
+  display: none;
+}
+
+html.dark .theme-toggle .icon-sun,
+html:not(.dark) .theme-toggle .icon-moon {
+  display: block;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -414,13 +425,13 @@ a {
 }
 
 .text-gradient {
-  background: linear-gradient(120deg, #818cf8 0%, #2dd4bf 55%, #f472b6 100%);
+  background: linear-gradient(120deg, #818cf8 0%, #2dd4bf 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 html:not(.dark) .text-gradient {
-  background: linear-gradient(120deg, #4f46e5 0%, #0d9488 60%, #db2777 100%);
+  background: linear-gradient(120deg, #4f46e5 0%, #0d9488 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -443,103 +454,24 @@ html:not(.dark) .text-gradient {
   justify-content: center;
 }
 
-/* Store Badges with Rotating Conic-Gradient Glow Ring (from moodmeter.cend.in) */
-.store-badge-wrap {
-  position: relative;
-  display: inline-block;
-}
-
-.badge-ring,
-.badge-glow {
-  pointer-events: none;
-  position: absolute;
-  overflow: hidden;
-}
-
-.badge-ring {
-  z-index: 2;
-  border-radius: 15px;
-  padding: 2px;
-  inset: -1px;
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-}
-
-.badge-glow {
-  z-index: 0;
-  filter: blur(10px);
-  opacity: 0.65;
-  border-radius: 19px;
-  transition: opacity 0.3s ease;
-  inset: -4px;
-}
-
-.store-badge-wrap:hover .badge-glow {
-  opacity: 1;
-}
-
-.badge-ring::before,
-.badge-glow::before {
-  content: "";
-  aspect-ratio: 1;
-  width: 150%;
-  animation: 12s linear infinite badge-shine-rotate;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.badge-ring::before {
-  background: conic-gradient(#4f46e5 0deg, #a5b4fc 30deg, #fff 55deg, #f472b6 85deg, #4f46e5 130deg, #6366f1 180deg, #7dd3fc 210deg, #fff 235deg, #c084fc 265deg, #4f46e5 310deg 360deg);
-}
-
-.badge-glow::before {
-  background: conic-gradient(#0000 0deg, rgba(129, 140, 248, 0.9) 45deg, rgba(244, 114, 182, 0.85) 85deg, #0000 140deg 180deg, rgba(125, 211, 252, 0.9) 225deg, rgba(192, 132, 252, 0.85) 265deg, #0000 320deg);
-}
-
-@keyframes badge-shine-rotate {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-.store-btn {
-  position: relative;
-  z-index: 1;
+/* Store Badges (official Apple/Google artwork) */
+.store-badge {
   display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1.35rem;
-  border-radius: 14px;
+  border-radius: 10px;
   transition: transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-sm);
 }
 
-.store-btn:hover {
+.store-badge:hover {
   transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
-.store-btn small {
+.store-badge img {
   display: block;
-  font-size: 0.72rem;
-  opacity: 0.82;
-  line-height: 1.1;
-}
-
-.store-btn strong {
-  display: block;
-  font-size: 1rem;
-  line-height: 1.25;
-}
-
-.store-btn-dark {
-  background: #0f172a;
-  color: #ffffff;
-}
-
-.store-btn-light {
-  background: var(--surface-solid);
-  color: var(--ink);
+  width: 162px;
+  height: 54px;
+  border-radius: 10px;
 }
 
 .hero-note {
@@ -768,7 +700,7 @@ html:not(.dark) .text-gradient {
   color: #ffffff;
   background:
     linear-gradient(135deg, #6366f1 0%, #4f46e5 55%, #4338ca 100%) padding-box,
-    conic-gradient(from var(--shine-angle, 0deg), #4f46e5 0deg, #818cf8 50deg, #fff 80deg, #f9a8d4 110deg, #4f46e5 160deg, #4f46e5 200deg, #7dd3fc 250deg, #fff 270deg, #4f46e5 320deg) border-box;
+    conic-gradient(from var(--shine-angle, 0deg), #4f46e5 0deg, #818cf8 90deg, #2dd4bf 180deg, #0d9488 270deg, #4f46e5 360deg) border-box;
   border: 1px solid transparent;
   animation: 2.8s linear infinite shine-spin, 0.7s ease-out pill-select-glow;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.28), 0 8px 20px -4px rgba(79, 70, 229, 0.45);
@@ -822,7 +754,7 @@ html:not(.dark) .text-gradient {
   color: #ffffff;
   background:
     linear-gradient(135deg, #6366f1 0%, #4f46e5 55%, #4338ca 100%) padding-box,
-    conic-gradient(from var(--shine-angle, 0deg), #4f46e5 0deg, #818cf8 50deg, #fff 80deg, #f9a8d4 110deg, #4f46e5 160deg, #4f46e5 200deg, #7dd3fc 250deg, #fff 270deg, #4f46e5 320deg) border-box;
+    conic-gradient(from var(--shine-angle, 0deg), #4f46e5 0deg, #818cf8 90deg, #2dd4bf 180deg, #0d9488 270deg, #4f46e5 360deg) border-box;
   border: 1px solid transparent;
   animation: 2.8s linear infinite shine-spin, 0.7s ease-out pill-select-glow;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.28), 0 8px 20px -4px rgba(79, 70, 229, 0.45);
@@ -831,34 +763,55 @@ html:not(.dark) .text-gradient {
 /* App Screens Gallery */
 .screens-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
-  gap: 1.35rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  justify-content: center;
+  gap: 1.5rem 1.25rem;
+  max-width: 1040px;
+  margin-inline: auto;
 }
 
 .screen-card {
-  background: var(--surface);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 0.75rem;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 .screen-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+}
+
+.screen-card-frame {
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 0.7rem;
+  box-shadow: var(--shadow-sm), inset 0 1px rgba(255, 255, 255, 0.1);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.screen-card:hover .screen-card-frame {
+  box-shadow: var(--shadow-md), inset 0 1px rgba(255, 255, 255, 0.14);
   border-color: rgba(129, 140, 248, 0.38);
 }
 
-.screen-card img {
+.screen-card-media {
+  position: relative;
   width: 100%;
-  aspect-ratio: 1320 / 2868;
+  padding-top: 217.2727%;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.screen-card-media img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 16px;
+  object-position: top center;
   display: block;
-  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .screen-card-caption {
@@ -962,31 +915,46 @@ html:not(.dark) .text-gradient {
 .ticker-set {
   display: flex;
   gap: 0.85rem;
-  padding-right: 0.85rem;
+  padding: 0 0.85rem 0 0;
+  margin: 0;
+  list-style: none;
 }
 
 .ticker-tile {
-  display: inline-flex;
+  flex: 0 0 auto;
+  width: 8.75rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.55rem 1.05rem;
-  border-radius: 999px;
+  text-align: center;
+  padding: 1.1rem 0.5rem 0.9rem;
+  border-radius: 18px;
   background: var(--surface);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--ink);
-  white-space: nowrap;
   box-shadow: var(--shadow-sm);
 }
 
-.ticker-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--primary);
+.ticker-tile .ticker-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.65rem;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.ticker-tile span {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.35;
+  color: var(--ink);
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 .ticker-wrap[data-static] .ticker-track {
@@ -1252,16 +1220,6 @@ html:not(.dark) .text-gradient {
 .audience-card p {
   color: var(--ink-muted);
   font-size: 0.94rem;
-}
-
-.journey-quote {
-  margin-top: auto;
-  padding-top: 1rem;
-  font-size: 0.86rem;
-  font-style: italic;
-  color: var(--ink-subtle);
-  border-top: 1px dashed var(--border);
-  margin-top: 1rem;
 }
 
 /* Privacy Section */
