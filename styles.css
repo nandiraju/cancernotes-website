@@ -510,36 +510,88 @@ html:not(.dark) .text-gradient {
   align-items: center;
 }
 
-.phone-frame {
-  width: min(336px, 100%);
-  background: #090909;
-  border: 2px solid rgba(255, 255, 255, 0.16);
-  border-radius: 44px;
-  padding: 10px;
-  box-shadow: var(--shadow-lg), 0 0 60px -15px rgba(79, 70, 229, 0.35);
+/* Shared hardware: screenshots retain their native 660 × 1434 proportions. */
+.phone-frame,
+.screen-card-frame {
   position: relative;
+  isolation: isolate;
+  container-type: inline-size;
+  width: min(336px, 100%);
+  padding: 8px;
+  border: 1px solid #8b8e96;
+  border-radius: 50px;
+  background: linear-gradient(115deg, #a0a2a9, #36383f 18%, #17181d 48%, #666970 82%, #a6a8af);
+  box-shadow: inset 0 0 0 2px #34363d, inset 0 0 0 4px #08090c,
+    0 24px 48px -20px rgba(15, 23, 42, 0.38), 0 6px 14px -8px rgba(15, 23, 42, 0.3);
 }
 
-.phone-notch {
-  width: 102px;
-  height: 24px;
-  background: radial-gradient(circle at 87%, #192139, #090d16 5%, #000 8%);
-  border-radius: 999px;
+/* Physical volume controls and power button sit outside the chassis. */
+.phone-frame::before,
+.screen-card-frame::before {
+  content: "";
   position: absolute;
-  top: 18px;
+  left: -3px;
+  top: 19%;
+  width: 2px;
+  height: 4%;
+  border-radius: 2px 0 0 2px;
+  background: #656870;
+  box-shadow: 0 36px #656870, 0 72px #656870;
+}
+
+.phone-frame::after,
+.screen-card-frame::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 30%;
+  width: 2px;
+  height: 10%;
+  border-radius: 0 2px 2px 0;
+  background: linear-gradient(#92959b, #43464d);
+}
+
+.phone-screen,
+.screen-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 660 / 1434;
+  overflow: hidden;
+  border-radius: 13cqi;
+  background: #08090c;
+  box-shadow: 0 0 0 3px #08090c;
+}
+
+/* The screenshots already contain their own time and status icons. */
+.phone-screen::before,
+.screen-card-media::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 1.7%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 5;
+  width: 27%;
+  height: 3.6%;
+  border-radius: 999px;
+  background: radial-gradient(circle at 85% 50%, #172437 0 3%, #07080b 5% 8%, transparent 9%), #050506;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  pointer-events: none;
 }
 
-.phone-screen {
-  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
-  color: #f8fafc;
-  border-radius: 34px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 580px;
+.phone-screen::after,
+.screen-card-media::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  bottom: 0.9%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: 0.65%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  pointer-events: none;
 }
 
 .phone-status {
@@ -718,10 +770,8 @@ html:not(.dark) .text-gradient {
 .phone-screen-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
   display: block;
-  border-radius: 32px;
   transition: opacity 0.25s ease;
 }
 
@@ -771,6 +821,8 @@ html:not(.dark) .text-gradient {
 }
 
 .screen-card {
+  margin: 0;
+  min-width: 0;
   transition: transform 0.25s ease;
 }
 
@@ -779,38 +831,22 @@ html:not(.dark) .text-gradient {
 }
 
 .screen-card-frame {
-  background: var(--surface);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 0.7rem;
-  box-shadow: var(--shadow-sm), inset 0 1px rgba(255, 255, 255, 0.1);
-  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  width: min(260px, 100%);
+  margin-inline: auto;
+  padding: 7px;
+  border-radius: 40px;
+  transition: box-shadow 0.25s ease;
 }
 
 .screen-card:hover .screen-card-frame {
-  box-shadow: var(--shadow-md), inset 0 1px rgba(255, 255, 255, 0.14);
-  border-color: rgba(129, 140, 248, 0.38);
-}
-
-.screen-card-media {
-  position: relative;
-  width: 100%;
-  padding-top: 217.2727%;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 0 2px #34363d, inset 0 0 0 4px #08090c,
+    0 28px 48px -20px rgba(15, 23, 42, 0.45);
 }
 
 .screen-card-media img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
   display: block;
 }
 
@@ -1540,4 +1576,50 @@ html:not(.dark) .text-gradient {
   font-size: 0.72rem;
   color: var(--ink-subtle);
   opacity: 0.88;
+}
+
+/* Airy artwork with its own transparent lighting; no heavy drop shadow. */
+.section-illustration-organised {
+  width: min(320px, 80%);
+  filter: none;
+  margin-bottom: 1.75rem;
+}
+
+/* The search capture is shorter and includes Android chrome. Keep its content
+   at native proportions, with the same iOS chrome as the other app previews. */
+.screen-card-media-search {
+  background: linear-gradient(90deg, #0e1b69, #0d206f 50%, #11236f);
+}
+
+.screen-card-media-search > img {
+  position: absolute;
+  top: 3%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  clip-path: inset(4% 0 11.3%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 86%, transparent 88.7%);
+}
+
+.search-ios-status,
+.search-ios-navigation {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-image: url("assets/screens/01-cancer-types.jpg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.search-ios-status {
+  top: 0;
+  height: 6.5%;
+  background-position: center top;
+}
+
+.search-ios-navigation {
+  bottom: 0;
+  height: 9.6%;
+  background-position: center bottom;
 }
