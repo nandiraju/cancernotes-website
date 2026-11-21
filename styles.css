@@ -996,14 +996,37 @@ html:not(.dark) .text-gradient {
 }
 
 .card-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
   margin-bottom: 1rem;
+  padding: 9px;
+}
+
+.card-icon img,
+.icon-svg {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+.tab-icon-svg {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
+}
+
+.section-illustration {
+  display: block;
+  width: min(220px, 60%);
+  height: auto;
+  margin: 0 auto 1.5rem;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.25));
 }
 
 .icon-teal { background: rgba(20, 184, 166, 0.16); }
