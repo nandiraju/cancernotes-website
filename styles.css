@@ -966,10 +966,13 @@ html:not(.dark) .text-gradient {
   padding: 1.1rem 0.5rem 0.9rem;
   border-radius: 18px;
   background: var(--surface);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 10px 22px -14px rgba(15, 23, 42, 0.18);
+}
+
+html.dark .ticker-tile {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.06));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 10px 20px -14px rgba(2, 6, 23, 0.6);
 }
 
 .ticker-tile .ticker-icon {
@@ -978,6 +981,11 @@ html:not(.dark) .text-gradient {
   margin-bottom: 0.65rem;
   color: var(--primary);
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.ticker-tile:hover .ticker-icon {
+  transform: scale(1.14) rotate(-4deg);
 }
 
 .ticker-tile span {
@@ -1069,10 +1077,45 @@ html:not(.dark) .text-gradient {
 .privacy-card-box,
 .legal-card {
   background: var(--surface);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(26px) saturate(170%);
+  -webkit-backdrop-filter: blur(26px) saturate(170%);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm), inset 0 1px rgba(255, 255, 255, 0.08);
+}
+
+html.dark .bento-card,
+html.dark .step-card,
+html.dark .audience-card,
+html.dark .faq-item,
+html.dark .privacy-card-box,
+html.dark .legal-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.04) 45%, rgba(255, 255, 255, 0.07) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 0 28px rgba(255, 255, 255, 0.025),
+    0 24px 48px -22px rgba(2, 6, 23, 0.75);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  html.dark .bento-card,
+  html.dark .step-card,
+  html.dark .audience-card,
+  html.dark .faq-item,
+  html.dark .privacy-card-box,
+  html.dark .legal-card {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.07) 45%, rgba(255, 255, 255, 0.10) 100%);
+  }
+}
+
+/* Pause infinite decorative animations while off-screen */
+[role="tablist"][data-offscreen] .screen-tab[aria-selected="true"],
+.store-badge-wrap[data-offscreen] .badge-ring::before,
+.store-badge-wrap[data-offscreen] .badge-glow::before {
+  animation-play-state: paused;
 }
 
 .bento-card {

@@ -247,18 +247,18 @@
 
         <!-- Real App Screen Preview -->
         <div class="hero-visual reveal reveal-delay-1 active">
-          <div class="phone-frame" role="region" aria-label="CancerNotes app screen preview">
+          <div class="phone-frame" id="heroScreenPanel" role="tabpanel" aria-labelledby="screenTab1">
             <div class="phone-screen">
               <img id="heroScreenImg" src="assets/screens/01-cancer-types.jpg" alt="CancerNotes Cancers library screen showing 118 cancer types" class="phone-screen-img" width="660" height="1434">
             </div>
           </div>
 
           <div class="screen-tabs" role="tablist" aria-label="Switch app preview screen">
-            <button type="button" class="screen-tab" role="tab" aria-selected="true" data-src="assets/screens/01-cancer-types.jpg" data-alt="CancerNotes Cancers library screen showing 118 cancer types">Cancers</button>
-            <button type="button" class="screen-tab" role="tab" aria-selected="false" data-src="assets/screens/02-trending-news.jpg" data-alt="CancerNotes Trending news feed from third-party publishers">Trending</button>
-            <button type="button" class="screen-tab" role="tab" aria-selected="false" data-src="assets/screens/03-quick-tips.jpg" data-alt="CancerNotes swipeable Quick Tips cards">Quick Tips</button>
-            <button type="button" class="screen-tab" role="tab" aria-selected="false" data-src="assets/screens/05-quiz-question.jpg" data-alt="CancerNotes self-test quiz question with explanation">Quizzes</button>
-            <button type="button" class="screen-tab" role="tab" aria-selected="false" data-src="assets/screens/09-notes.jpg" data-alt="CancerNotes private on-device notebook">Notes</button>
+            <button type="button" id="screenTab1" class="screen-tab" role="tab" aria-selected="true" aria-controls="heroScreenPanel" tabindex="0" data-src="assets/screens/01-cancer-types.jpg" data-alt="CancerNotes Cancers library screen showing 118 cancer types">Cancers</button>
+            <button type="button" id="screenTab2" class="screen-tab" role="tab" aria-selected="false" aria-controls="heroScreenPanel" tabindex="-1" data-src="assets/screens/02-trending-news.jpg" data-alt="CancerNotes Trending news feed from third-party publishers">Trending</button>
+            <button type="button" id="screenTab3" class="screen-tab" role="tab" aria-selected="false" aria-controls="heroScreenPanel" tabindex="-1" data-src="assets/screens/03-quick-tips.jpg" data-alt="CancerNotes swipeable Quick Tips cards">Quick Tips</button>
+            <button type="button" id="screenTab4" class="screen-tab" role="tab" aria-selected="false" aria-controls="heroScreenPanel" tabindex="-1" data-src="assets/screens/05-quiz-question.jpg" data-alt="CancerNotes self-test quiz question with explanation">Quizzes</button>
+            <button type="button" id="screenTab5" class="screen-tab" role="tab" aria-selected="false" aria-controls="heroScreenPanel" tabindex="-1" data-src="assets/screens/09-notes.jpg" data-alt="CancerNotes private on-device notebook">Notes</button>
           </div>
         </div>
       </div>
