@@ -23,6 +23,8 @@ CancerNotes is for information and learning only and is not a substitute for pro
 ## Links
 
 - Home: https://cancer.cend.in/
+- iOS App Store: https://apps.apple.com/in/app/cancernotes/id6443523654
+- Google Play Store: https://play.google.com/store/apps/details?id=nsri.apps.cancernotes
 - Privacy Policy: https://cancer.cend.in/privacy_policy.html
 - Terms of Service: https://cancer.cend.in/terms_of_service.html
 - Contact & Support: https://cancer.cend.in/contact.html
