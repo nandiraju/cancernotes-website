@@ -40,6 +40,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
+  <noscript>
+    <style>.reveal { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
 
   <!-- Dark theme by default; light only if the visitor chose it -->
   <script>
@@ -151,6 +154,12 @@
   </script>
 </head>
 <body>
+  <div class="ambient" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+  </div>
+
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- Header / Navigation -->
@@ -158,13 +167,7 @@
     <div class="container nav-inner">
       <a href="index.html" class="brand" aria-label="CancerNotes Home">
         <span class="brand-mark" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
-            <rect width="64" height="64" rx="16" fill="#0F766E"/>
-            <rect x="17" y="13" width="30" height="38" rx="6" fill="#FFFFFF"/>
-            <path d="M24 23h16M24 30h16M24 37h10" stroke="#0F766E" stroke-width="3.2" stroke-linecap="round"/>
-            <circle cx="43" cy="43" r="9" fill="#6D28D9"/>
-            <path d="M43 39v8M39 43h8" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"/>
-          </svg>
+          <img src="favicon.svg" alt="" width="28" height="28">
         </span>
         <span class="brand-name">CancerNotes</span>
       </a>
@@ -179,7 +182,7 @@
       </nav>
 
       <div class="nav-actions">
-        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch theme">☀️</button>
+        <button type="button" class="theme-toggle" aria-label="Toggle color theme">☀️</button>
         <a href="#download" class="btn btn-primary btn-sm">Get the App</a>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
           <span></span>
@@ -206,7 +209,7 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-copy">
+        <div class="hero-copy reveal active">
           <div class="pill-badge">
             <span class="dot" aria-hidden="true"></span>
             Free for iOS &amp; Android · No Account Required
@@ -219,24 +222,33 @@
           </p>
 
           <div class="hero-ctas" id="download">
-            <a href="#download-info" class="store-btn store-btn-dark" data-platform="iOS">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.33c.64-.78 1.08-1.86.96-2.94-.93.04-2.05.62-2.71 1.4-.58.68-1.1 1.78-.96 2.84 1.04.08 2.07-.52 2.71-1.3z"/>
-              </svg>
-              <span>
-                <small>Download for</small>
-                <strong>iPhone (iOS)</strong>
-              </span>
-            </a>
-            <a href="#download-info" class="store-btn store-btn-light" data-platform="Android">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M3.609 1.814L13.792 12 3.61 22.186a1.77 1.77 0 0 1-.61-1.337V3.151c0-.517.224-.995.609-1.337zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
-              </svg>
-              <span>
-                <small>Get it on</small>
-                <strong>Android</strong>
-              </span>
-            </a>
+            <div class="store-badge-wrap">
+              <div class="badge-glow" aria-hidden="true"></div>
+              <div class="badge-ring" aria-hidden="true"></div>
+              <a href="#download-info" class="store-btn store-btn-dark" data-platform="iOS">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.33c.64-.78 1.08-1.86.96-2.94-.93.04-2.05.62-2.71 1.4-.58.68-1.1 1.78-.96 2.84 1.04.08 2.07-.52 2.71-1.3z"/>
+                </svg>
+                <span>
+                  <small>Download for</small>
+                  <strong>iPhone (iOS)</strong>
+                </span>
+              </a>
+            </div>
+
+            <div class="store-badge-wrap">
+              <div class="badge-glow" aria-hidden="true"></div>
+              <div class="badge-ring" aria-hidden="true"></div>
+              <a href="#download-info" class="store-btn store-btn-light" data-platform="Android">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M3.609 1.814L13.792 12 3.61 22.186a1.77 1.77 0 0 1-.61-1.337V3.151c0-.517.224-.995.609-1.337zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+                </svg>
+                <span>
+                  <small>Get it on</small>
+                  <strong>Android</strong>
+                </span>
+              </a>
+            </div>
           </div>
 
           <p class="hero-note" id="download-info">
@@ -252,7 +264,7 @@
         </div>
 
         <!-- Interactive Phone Mockup -->
-        <div class="hero-visual">
+        <div class="hero-visual reveal reveal-delay-1 active">
           <div class="phone-frame" role="region" aria-label="Interactive CancerNotes app preview">
             <div class="phone-notch" aria-hidden="true"></div>
             <div class="phone-screen">
@@ -333,17 +345,43 @@
       </div>
     </section>
 
+    <!-- Cancer Types Marquee Ticker -->
+    <section class="ticker-section" aria-label="Sample cancer types and topics in CancerNotes">
+      <div class="ticker-wrap" data-ticker>
+        <div class="ticker-track">
+          <div class="ticker-set">
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>Breast Cancer</span>
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>Prostate Cancer</span>
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>Lung Cancer</span>
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>Colorectal Cancer</span>
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>Melanoma</span>
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>Pancreatic Cancer</span>
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>Leukemia</span>
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>Lymphoma</span>
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>Ovarian Cancer</span>
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>Medulloblastoma</span>
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>Adenoid Cystic Carcinoma</span>
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>Astrocytoma</span>
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>Thyroid Cancer</span>
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>Bladder Cancer</span>
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>Immunotherapy</span>
+            <span class="ticker-tile"><span class="ticker-dot" aria-hidden="true"></span>CAR-T</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Core Features Bento Section -->
     <section class="section" id="features">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="eyebrow">Five Tabs, One Calm Companion</span>
           <h2>News, notes, and know-how for every cancer type.</h2>
           <p>Everything is organised around 118 cancer types—plus any custom topics you want to follow—so you can learn at your own pace without overwhelm.</p>
         </div>
 
         <div class="bento-grid">
-          <article class="bento-card bento-wide">
+          <article class="bento-card bento-wide reveal">
             <div class="card-icon icon-teal" aria-hidden="true">📚</div>
             <h3>118 Cancer Types + Custom Topics</h3>
             <p>Browse a searchable library of <strong>118 cancer types</strong>—from common cancers like breast, colorectal, lung, prostate, pancreatic, and melanoma to rare and childhood cancers like adenoid cystic carcinoma and medulloblastoma.</p>
@@ -355,7 +393,7 @@
             </ul>
           </article>
 
-          <article class="bento-card">
+          <article class="bento-card reveal reveal-delay-1">
             <div class="card-icon icon-blue" aria-hidden="true">📰</div>
             <h3>Trending News</h3>
             <p>Follow recent articles from third-party publishers for your chosen cancer type—gathered from multiple sources, deduplicated, and ordered newest first.</p>
@@ -366,7 +404,7 @@
             </ul>
           </article>
 
-          <article class="bento-card">
+          <article class="bento-card reveal">
             <div class="card-icon icon-purple" aria-hidden="true">💡</div>
             <h3>Swipeable Quick Tips</h3>
             <p>Two minutes, ten facts, one swipe at a time. Each topic gives you <strong>10 plain-language fact cards</strong> (AI-generated educational content) designed for busy or overwhelming days.</p>
@@ -377,7 +415,7 @@
             </ul>
           </article>
 
-          <article class="bento-card bento-wide">
+          <article class="bento-card bento-wide reveal reveal-delay-1">
             <div class="card-icon icon-amber" aria-hidden="true">✅</div>
             <h3>Self-Test Quizzes &amp; Learning History</h3>
             <p>Learn by doing: answer, check, and understand. Quizzes feature AI-generated educational questions tailored to your chosen topic and difficulty.</p>
@@ -389,7 +427,7 @@
             <p class="mt-sm">Every answer includes an explanation in green or red, and completed quizzes are saved automatically to your <strong>Quizzes</strong> tab so you can review, retake, and watch your average climb.</p>
           </article>
 
-          <article class="bento-card">
+          <article class="bento-card reveal">
             <div class="card-icon icon-rose" aria-hidden="true">📝</div>
             <h3>Private Notebook</h3>
             <p>Never forget a question for your next appointment. Jot down doctor questions, symptoms, medication reminders, or thoughts—stored only on your phone.</p>
@@ -399,7 +437,7 @@
             </ul>
           </article>
 
-          <article class="bento-card">
+          <article class="bento-card reveal reveal-delay-1">
             <div class="card-icon icon-slate" aria-hidden="true">🔖</div>
             <h3>Saved &amp; Ready Offline</h3>
             <p>Your personal reading list of bookmarked articles stays on your device with no sign-in required.</p>
@@ -416,24 +454,24 @@
     <!-- How It Works -->
     <section class="section section-tint" id="how-it-works">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="eyebrow">Simple by Design</span>
           <h2>Stay informed. Stay organised. Stay in control.</h2>
           <p>No onboarding forms, no passwords, and no clutter. Open the app and start in seconds.</p>
         </div>
 
         <div class="steps-grid">
-          <div class="step-card">
+          <div class="step-card reveal">
             <span class="step-num">01</span>
             <h3>Pick your cancer type or topic</h3>
             <p>Search 118 built-in cancer types—or add your own custom keywords in Settings—to focus only on what matters to you.</p>
           </div>
-          <div class="step-card">
+          <div class="step-card reveal reveal-delay-1">
             <span class="step-num">02</span>
             <h3>Learn &amp; follow at your pace</h3>
             <p>Swipe through 10 quick tips, check recent third-party news in Trending, or test what you know with an Easy, Medium, or Hard quiz.</p>
           </div>
-          <div class="step-card">
+          <div class="step-card reveal reveal-delay-2">
             <span class="step-num">03</span>
             <h3>Save articles &amp; keep private notes</h3>
             <p>Bookmark articles to read later, share updates with family in a tap, and dictate questions for your care team—all stored on your phone.</p>
@@ -445,14 +483,14 @@
     <!-- Who It's For -->
     <section class="section" id="who-its-for">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="eyebrow">Built for Every Perspective</span>
           <h2>A calm companion for everyone touched by cancer.</h2>
           <p>Whether you are newly diagnosed, supporting a loved one, or studying oncology, CancerNotes meets you where you are.</p>
         </div>
 
         <div class="audience-grid">
-          <article class="audience-card">
+          <article class="audience-card reveal">
             <div class="audience-role">Newly Diagnosed Patients</div>
             <h3>Make sense of unfamiliar terms</h3>
             <p>Quick Tips explain the basics in plain language, Trending shows recent news for your specific cancer, and Notes lets you dictate questions for your next appointment.</p>
@@ -461,7 +499,7 @@
             </div>
           </article>
 
-          <article class="audience-card">
+          <article class="audience-card reveal reveal-delay-1">
             <div class="audience-role">Caregivers &amp; Family Members</div>
             <h3>Keep up and keep track together</h3>
             <p>Keep saved articles and appointment notes in one place, and use the native Share sheet to send relevant updates to your family group chat in a tap.</p>
@@ -470,13 +508,13 @@
             </div>
           </article>
 
-          <article class="audience-card">
+          <article class="audience-card reveal reveal-delay-2">
             <div class="audience-role">People in Treatment or Survivorship</div>
             <h3>Follow news without doom-scrolling</h3>
             <p>Get a focused news feed per cancer type instead of overwhelming search results, and bookmark articles worth re-reading later.</p>
           </article>
 
-          <article class="audience-card">
+          <article class="audience-card reveal">
             <div class="audience-role">Students, Nurses &amp; Health Learners</div>
             <h3>Study and self-test across 118 types</h3>
             <p>Choose Easy, Medium, or Hard quizzes from 5 to 20 questions, review explanations for every answer, and track your score average over time.</p>
@@ -485,7 +523,7 @@
             </div>
           </article>
 
-          <article class="audience-card">
+          <article class="audience-card reveal reveal-delay-1">
             <div class="audience-role">Advocates &amp; Researchers</div>
             <h3>Follow custom topics effortlessly</h3>
             <p>Add custom keywords like <em>CAR-T</em> or <em>Immunotherapy</em> in Settings so they appear at the top of your list with their own news, tips, and quizzes.</p>
@@ -497,7 +535,7 @@
     <!-- Privacy & Accessibility Section -->
     <section class="section section-tint" id="privacy">
       <div class="container privacy-grid">
-        <div class="privacy-copy">
+        <div class="privacy-copy reveal">
           <span class="eyebrow">Privacy by Design &amp; Accessibility</span>
           <h2>No account. No profile. Your notes never leave your phone.</h2>
           <p>
@@ -519,7 +557,7 @@
           </p>
         </div>
 
-        <div class="privacy-card-box">
+        <div class="privacy-card-box reveal reveal-delay-1">
           <div class="spec-row">
             <span>Account required</span>
             <strong>No</strong>
@@ -551,38 +589,38 @@
     <!-- FAQ Section -->
     <section class="section" id="faq">
       <div class="container faq-container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="eyebrow">Frequently Asked Questions</span>
           <h2>Clear answers, no fine print.</h2>
         </div>
 
         <div class="faq-list">
-          <details class="faq-item" open>
+          <details class="faq-item reveal" open>
             <summary>Is CancerNotes free to use?</summary>
             <p>Yes. CancerNotes is free for both iPhone (iOS) and Android, with no in-app purchases in the current build.</p>
           </details>
 
-          <details class="faq-item">
+          <details class="faq-item reveal">
             <summary>Do I need to create an account or sign in?</summary>
             <p>No. CancerNotes requires no account, no sign-up, and no login. Your notes, saved articles, quiz history, and custom topics are stored only on your device.</p>
           </details>
 
-          <details class="faq-item">
+          <details class="faq-item reveal">
             <summary>Does CancerNotes provide medical advice?</summary>
             <p>No. CancerNotes is an information and learning tool, not a medical tool. It does not diagnose, treat, or replace a care team. Always talk to your care team about your health.</p>
           </details>
 
-          <details class="faq-item">
+          <details class="faq-item reveal">
             <summary>Where do the news articles, tips, and quizzes come from?</summary>
             <p><strong>Trending</strong> gathers and links to recent articles from third-party publishers (roughly the past month, with duplicates removed)—CancerNotes does not write or verify them. <strong>Quick Tips</strong> and <strong>Quizzes</strong> are AI-generated educational content created for learning only; always check with your care team.</p>
           </details>
 
-          <details class="faq-item">
+          <details class="faq-item reveal">
             <summary>Does CancerNotes work offline?</summary>
             <p>Yes, for content on your phone: your notes, saved articles, quiz history, and any tips or quizzes you have opened before open instantly offline. Trending news and fetching brand-new tips or quiz sets require an internet connection.</p>
           </details>
 
-          <details class="faq-item">
+          <details class="faq-item reveal">
             <summary>How many cancer types are included?</summary>
             <p>CancerNotes includes <strong>118 cancer types</strong>, covering common cancers as well as rare and childhood cancers. You can also add unlimited custom keywords in Settings to follow specific treatments, trials, or topics.</p>
           </details>
@@ -592,68 +630,70 @@
 
     <!-- Bottom CTA -->
     <section class="section cta-banner">
-      <div class="container cta-inner">
+      <div class="container cta-inner reveal">
         <h2>Learn about cancer at your own pace.</h2>
         <p>Keep recent news, plain-language tips, self-test quizzes, and your private appointment notes together in one calm app.</p>
         <div class="hero-ctas justify-center">
-          <a href="#download" class="store-btn store-btn-dark">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.33c.64-.78 1.08-1.86.96-2.94-.93.04-2.05.62-2.71 1.4-.58.68-1.1 1.78-.96 2.84 1.04.08 2.07-.52 2.71-1.3z"/>
-            </svg>
-            <span>
-              <small>Download for</small>
-              <strong>iPhone (iOS)</strong>
-            </span>
-          </a>
-          <a href="#download" class="store-btn store-btn-light">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M3.609 1.814L13.792 12 3.61 22.186a1.77 1.77 0 0 1-.61-1.337V3.151c0-.517.224-.995.609-1.337zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
-            </svg>
-            <span>
-              <small>Get it on</small>
-              <strong>Android</strong>
-            </span>
-          </a>
+          <div class="store-badge-wrap">
+            <div class="badge-glow" aria-hidden="true"></div>
+            <div class="badge-ring" aria-hidden="true"></div>
+            <a href="#download" class="store-btn store-btn-dark">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.33c.64-.78 1.08-1.86.96-2.94-.93.04-2.05.62-2.71 1.4-.58.68-1.1 1.78-.96 2.84 1.04.08 2.07-.52 2.71-1.3z"/>
+              </svg>
+              <span>
+                <small>Download for</small>
+                <strong>iPhone (iOS)</strong>
+              </span>
+            </a>
+          </div>
+          <div class="store-badge-wrap">
+            <div class="badge-glow" aria-hidden="true"></div>
+            <div class="badge-ring" aria-hidden="true"></div>
+            <a href="#download" class="store-btn store-btn-light">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a1.77 1.77 0 0 1-.61-1.337V3.151c0-.517.224-.995.609-1.337zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+              </svg>
+              <span>
+                <small>Get it on</small>
+                <strong>Android</strong>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer (matching moodmeter.cend.in) -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <a href="index.html" class="brand">
-            <span class="brand-mark" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 64 64" fill="none">
-                <rect width="64" height="64" rx="16" fill="#0F766E"/>
-                <rect x="17" y="13" width="30" height="38" rx="6" fill="#FFFFFF"/>
-                <path d="M24 23h16M24 30h16M24 37h10" stroke="#0F766E" stroke-width="3.2" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <span class="brand-name">CancerNotes</span>
-          </a>
-          <p class="footer-tagline">Understand cancer, one card at a time.</p>
+      <div class="footer-row">
+        <div class="footer-brand-row">
+          <img src="favicon.svg" alt="CancerNotes icon" width="32" height="32" loading="lazy" style="border-radius: 8px;">
+          <div>
+            <span class="footer-brand-name">CancerNotes</span>
+            <span class="footer-copy">© 2026 CancerNotes. All rights reserved.</span>
+          </div>
         </div>
 
-        <nav class="footer-links" aria-label="Footer Navigation">
+        <nav class="footer-nav" aria-label="Footer Navigation">
           <a href="#features">Features</a>
-          <a href="#who-its-for">Who It's For</a>
           <a href="#faq">FAQ</a>
           <a href="privacy_policy.html">Privacy Policy</a>
           <a href="terms_of_service.html">Terms of Service</a>
           <a href="contact.html">Contact</a>
+          <button type="button" class="theme-toggle" aria-label="Toggle color theme" title="Toggle light/dark theme">☀️</button>
         </nav>
       </div>
 
-      <div class="disclaimer-box" role="note" aria-label="Medical Disclaimer">
-        <strong>Medical Disclaimer:</strong> CancerNotes is for information and learning only and is not a substitute for professional medical advice. Tips and quiz questions are AI-generated educational content; always talk to your care team about your health. Trending news links to articles from third-party publishers.
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2026 CancerNotes. Free for iOS and Android.</p>
-        <p>Notes, saved articles, and quiz history stay on your device.</p>
+      <div class="footer-meta">
+        <p class="footer-credit">
+          CancerNotes app &amp; website designed and developed by <a href="https://srikanth.nandiraju.com/" target="_blank" rel="author noopener">Srikanth Nandiraju</a> <span aria-hidden="true">·</span> <a href="https://ai.nandiraju.com/" target="_blank" rel="noopener">Talk to the digital twin of Srikanth Nandiraju</a>
+        </p>
+        <p class="footer-disclaimer">
+          <strong>Medical Disclaimer:</strong> CancerNotes is for information and learning only and is not a substitute for professional medical advice. Tips and quiz questions are AI-generated educational content; always talk to your care team about your health. Trending news links to articles from third-party publishers.
+        </p>
       </div>
     </div>
   </footer>
