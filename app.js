@@ -162,26 +162,63 @@
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let swapToken = 0;
 
-  async function swapHeroScreen(nextSrc, nextAlt) {
-    if (!heroScreenImg || !nextSrc) return;
+  async function swapHeroScreen(nextSrc, nextAlt, direction = 1) {
+    if (!heroScreenImg || !nextSrc || heroScreenImg.getAttribute('src') === nextSrc) return;
     const token = ++swapToken;
-    const canAnimate = !prefersReducedMotion.matches && typeof heroScreenImg.animate === 'function';
-    try {
-      if (canAnimate) {
-        heroScreenImg.getAnimations().forEach((a) => a.cancel());
-        await heroScreenImg.animate([{ opacity: 1 }, { opacity: 0.25 }], { duration: 140, easing: 'ease-out', fill: 'forwards' }).finished;
-      }
-      if (token !== swapToken) return;
+    const container = heroScreenImg.parentElement;
+    const canAnimate = !prefersReducedMotion.matches && typeof heroScreenImg.animate === 'function' && container;
+
+    if (!canAnimate) {
       heroScreenImg.src = nextSrc;
       heroScreenImg.alt = nextAlt || '';
-      if (canAnimate) {
-        await heroScreenImg.decode().catch(() => {});
-        if (token !== swapToken) return;
-        const fadeIn = heroScreenImg.animate([{ opacity: 0.25 }, { opacity: 1 }], { duration: 220, easing: 'ease-out', fill: 'forwards' });
-        await fadeIn.finished;
-        if (token === swapToken) heroScreenImg.getAnimations().forEach((a) => a.cancel());
+      return;
+    }
+
+    try {
+      // Remove any leftover transition clones
+      container.querySelectorAll('.hero-slide-ghost').forEach((el) => el.remove());
+      heroScreenImg.getAnimations().forEach((a) => a.cancel());
+
+      if (getComputedStyle(container).position === 'static') {
+        container.style.position = 'relative';
       }
+      container.style.overflow = 'hidden';
+
+      const ghost = heroScreenImg.cloneNode(false);
+      ghost.removeAttribute('id');
+      ghost.setAttribute('aria-hidden', 'true');
+      ghost.classList.add('hero-slide-ghost');
+      Object.assign(ghost.style, {
+        position: 'absolute',
+        inset: '0',
+        width: '100%',
+        height: '100%',
+        objectFit: getComputedStyle(heroScreenImg).objectFit || 'cover',
+        pointerEvents: 'none',
+        zIndex: '1'
+      });
+      container.appendChild(ghost);
+
+      heroScreenImg.src = nextSrc;
+      heroScreenImg.alt = nextAlt || '';
+      await heroScreenImg.decode().catch(() => {});
+      if (token !== swapToken) {
+        ghost.remove();
+        return;
+      }
+
+      const enterFrom = direction >= 0 ? 'translate3d(100%, 0, 0)' : 'translate3d(-100%, 0, 0)';
+      const exitTo = direction >= 0 ? 'translate3d(-100%, 0, 0)' : 'translate3d(100%, 0, 0)';
+      const timing = { duration: 380, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'forwards' };
+
+      const outAnim = ghost.animate([{ transform: 'translate3d(0, 0, 0)' }, { transform: exitTo }], timing);
+      const inAnim = heroScreenImg.animate([{ transform: enterFrom }, { transform: 'translate3d(0, 0, 0)' }], timing);
+
+      await Promise.all([outAnim.finished, inAnim.finished]);
+      ghost.remove();
+      if (token === swapToken) heroScreenImg.getAnimations().forEach((a) => a.cancel());
     } catch (_) {
+      container?.querySelectorAll('.hero-slide-ghost').forEach((el) => el.remove());
       if (token !== swapToken) return;
       heroScreenImg.src = nextSrc;
       heroScreenImg.alt = nextAlt || '';
@@ -189,6 +226,12 @@
   }
 
   function activateScreenTab(tab, moveFocus = false) {
+    const tabs = Array.from(screenTabs);
+    const prevIdx = tabs.findIndex((t) => t.getAttribute('aria-selected') === 'true');
+    const nextIdx = tabs.indexOf(tab);
+    const isWrapForward = prevIdx === tabs.length - 1 && nextIdx === 0;
+    const direction = isWrapForward || prevIdx === -1 ? 1 : nextIdx >= prevIdx ? 1 : -1;
+
     screenTabs.forEach((t) => {
       const active = t === tab;
       t.setAttribute('aria-selected', active ? 'true' : 'false');
@@ -196,7 +239,7 @@
     });
     if (heroPanel && tab.id) heroPanel.setAttribute('aria-labelledby', tab.id);
     if (moveFocus) tab.focus();
-    swapHeroScreen(tab.dataset.src, tab.dataset.alt);
+    swapHeroScreen(tab.dataset.src, tab.dataset.alt, direction);
   }
 
   if (heroScreenImg && screenTabs.length) {
