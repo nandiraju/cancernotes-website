@@ -55,6 +55,15 @@
     let visible = true;
     let resizeTimer = 0;
 
+    // Randomize icon colors on each load before cloning so clones match
+    if (firstSet) {
+      const palette = ['#2dd4bf', '#818cf8', '#f472b6', '#38bdf8', '#fbbf24', '#a78bfa', '#34d399', '#fb7185'];
+      firstSet.querySelectorAll('.ticker-tile').forEach((tile) => {
+        const color = palette[Math.floor(Math.random() * palette.length)];
+        tile.style.setProperty('--ticker-color', color);
+      });
+    }
+
     function sync() {
       if (!anim) return;
       userPaused || !visible || document.hidden ? anim.pause() : anim.play();
