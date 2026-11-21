@@ -1,58 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:imag="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://nandiraju.github.io/cancernotes-website/</loc>
+    <loc>https://cancer.cend.in/</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://nandiraju.github.io/cancernotes-website/assets/screens/01-cancer-types.jpg</image:loc>
+      <image:loc>https://cancer.cend.in/assets/screens/01-cancer-types.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://nandiraju.github.io/cancernotes-website/assets/screens/02-trending-news.jpg</image:loc>
+      <image:loc>https://cancer.cend.in/assets/screens/02-trending-news.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://nandiraju.github.io/cancernotes-website/assets/screens/03-quick-tips.jpg</image:loc>
+      <image:loc>https://cancer.cend.in/assets/screens/03-quick-tips.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://nandiraju.github.io/cancernotes-website/assets/screens/04-quiz-setup.jpg</image:loc>
+      <image:loc>https://cancer.cend.in/assets/screens/04-quiz-setup.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://nandiraju.github.io/cancernotes-website/assets/screens/05-quiz-question.jpg</image:loc>
+      <image:loc>https://cancer.cend.in/assets/screens/05-quiz-question.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://nandiraju.github.io/cancernotes-website/assets/screens/06-quiz-review.jpg</image:loc>
+      <image:loc>https://cancer.cend.in/assets/screens/06-quiz-review.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://nandiraju.github.io/cancernotes-website/assets/screens/07-quiz-history.jpg</image:loc>
+      <image:loc>https://cancer.cend.in/assets/screens/07-quiz-history.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://nandiraju.github.io/cancernotes-website/assets/screens/08-saved-articles.jpg</image:loc>
+      <image:loc>https://cancer.cend.in/assets/screens/08-saved-articles.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://nandiraju.github.io/cancernotes-website/assets/screens/09-notes.jpg</image:loc>
+      <image:loc>https://cancer.cend.in/assets/screens/09-notes.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://nandiraju.github.io/cancernotes-website/assets/screens/10-search.jpg</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://nandiraju.github.io/cancernotes-website/privacy_policy.html</loc>
-    <lastmod>2026-11-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nandiraju.github.io/cancernotes-website/terms_of_service.html</loc>
-    <lastmod>2026-11-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://nandiraju.github.io/cancernotes-website/contact.html</loc>
-    <lastmod>2026-11-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-</urlset>
