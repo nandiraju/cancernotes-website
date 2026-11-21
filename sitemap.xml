@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:imag="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://cancer.cend.in/</loc>
     <lastmod>2026-11-21</lastmod>
@@ -34,3 +34,25 @@
       <image:loc>https://cancer.cend.in/assets/screens/09-notes.jpg</image:loc>
     </image:image>
     <image:image>
+      <image:loc>https://cancer.cend.in/assets/screens/10-search.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://cancer.cend.in/privacy_policy.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://cancer.cend.in/terms_of_service.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://cancer.cend.in/contact.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
