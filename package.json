@@ -1,0 +1,9 @@
+{
+  "name": "cancernotes-website",
+  "private": true,
+  "description": "Static site. sitemap.xml is generated; commit it with scripts/sitemap.state.json.",
+  "scripts": {
+    "build": "npm run build:sitemap",
+    "build:sitemap": "node scripts/build-sitemap.mjs"
+  }
+}

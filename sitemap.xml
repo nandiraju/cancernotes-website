@@ -4,8 +4,6 @@
   <url>
     <loc>https://cancer.cend.in/</loc>
     <lastmod>2026-11-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
     <image:image>
       <image:loc>https://cancer.cend.in/assets/screens/01-cancer-types.jpg</image:loc>
     </image:image>
@@ -38,21 +36,15 @@
     </image:image>
   </url>
   <url>
+    <loc>https://cancer.cend.in/contact.html</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
     <loc>https://cancer.cend.in/privacy_policy.html</loc>
     <lastmod>2026-11-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://cancer.cend.in/terms_of_service.html</loc>
     <lastmod>2026-11-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://cancer.cend.in/contact.html</loc>
-    <lastmod>2026-11-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
   </url>
 </urlset>

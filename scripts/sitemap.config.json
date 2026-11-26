@@ -1,0 +1,16 @@
+{
+  "images": {
+    "index.html": [
+      "assets/screens/01-cancer-types.jpg",
+      "assets/screens/02-trending-news.jpg",
+      "assets/screens/03-quick-tips.jpg",
+      "assets/screens/04-quiz-setup.jpg",
+      "assets/screens/05-quiz-question.jpg",
+      "assets/screens/06-quiz-review.jpg",
+      "assets/screens/07-quiz-history.jpg",
+      "assets/screens/08-saved-articles.jpg",
+      "assets/screens/09-notes.jpg",
+      "assets/screens/10-search.jpg"
+    ]
+  }
+}
