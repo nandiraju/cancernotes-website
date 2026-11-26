@@ -851,21 +851,19 @@ html:not(.dark) .text-gradient {
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.28), 0 8px 20px -4px rgba(79, 70, 229, 0.45);
 }
 
-/* App Screens Ticker Gallery (scrolls opposite to the cancer-types ticker) */
-.screens-ticker {
-  padding: 0.5rem 0 1rem;
-}
-
-.screens-set {
-  display: flex;
-  gap: 1.5rem;
-  padding: 0.5rem 1.5rem 0.5rem 0;
+/* App Screens Gallery */
+.screens-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  justify-content: center;
+  gap: 1.5rem 1.25rem;
+  max-width: 1040px;
+  margin-inline: auto;
 }
 
 .screen-card {
-  flex: 0 0 auto;
-  width: 220px;
   margin: 0;
+  min-width: 0;
   transition: transform 0.25s ease;
 }
 
@@ -1019,12 +1017,24 @@ html.dark .ticker-tile {
 }
 
 .ticker-tile .ticker-icon {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   margin-bottom: 0.65rem;
   color: var(--ticker-color, var(--primary));
   flex-shrink: 0;
   transition: transform 0.3s ease;
+}
+
+.ticker-tile .ticker-icon path,
+.ticker-tile .ticker-icon circle,
+.ticker-tile .ticker-icon rect,
+.ticker-tile .ticker-icon line,
+.ticker-tile .ticker-icon polygon {
+  stroke: currentColor;
+  stroke-width: 1.15;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  paint-order: stroke fill;
 }
 
 .ticker-tile:nth-child(8n+1) { --ticker-color: #2dd4bf; }
